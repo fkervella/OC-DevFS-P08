@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 
 import { apiClient } from "@/services/backend/apiClient";
-import { Property } from "@/types/backendApiTypes";
+import { BackendProperty } from "@/types/backendApiTypes";
 
 type Status = "idle" | "loading" | "success" | "error";
 
 export default function TestPropertiesPage() {
-  const [properties, setProperties] = useState<Property[]>([]);
+  const [properties, setProperties] = useState<BackendProperty[]>([]);
   const [status, setStatus] = useState<Status>("idle");
   const [, setError] = useState<string | null>(null);
 
@@ -17,7 +17,7 @@ export default function TestPropertiesPage() {
     setError(null);
     try {
       const data = await apiClient.get("properties");
-      setProperties(data as Property[]);
+      setProperties(data as BackendProperty[]);
       setStatus("success");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erreur inconnue");
