@@ -31,10 +31,10 @@ next/image pour chargement des images et chargement paresseux des listes
 
 ## Etape 1 : Initialisation du projet Next.js + dépôt Git
 
-## Etape 2 : Configuration de l'accès au back-end
+## Etape 2 : Configuration de l accès au back-end
 
 ## Etape 3 : Création du layout et intégration du design global (composants, styles) identification des parties client et server
-    Proxy
+    *Proxy
     Page 404 S1
     Composants :
         Header
@@ -57,7 +57,7 @@ next/image pour chargement des images et chargement paresseux des listes
     Afficher les logements dans la page accueil Page accueil S1
         sous forme de carte contenant image, titre, prix et bouton favori
 
-## Etape 5 : Création de la page détail d'une propriété avec carrousel dynamique et tests unitaires
+## Etape 5 : Création de la page détail d une propriété avec carrousel dynamique et tests unitaires
     Naviguer vers un logement depuis la page accueil Page logement S1
         Redirection vers la page de détails du logement
     
@@ -80,7 +80,7 @@ next/image pour chargement des images et chargement paresseux des listes
         tests unitaires des favoris réalisés
         enregistrment dans le stockage local avec Context et LocalStorage
 
-## Etape 7 : Ajout d'un sitemap
+## Etape 7 : Ajout d un sitemap
 
 ## Etape 8 : Accessibilité du site WCAG avec lighthouse (indicaturs tous au vert) et wave
 
