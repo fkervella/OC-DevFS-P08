@@ -40,7 +40,7 @@ next/image pour chargement des images et chargement paresseux des listes
         Header
         Footer
         PropertyCard
-        Equipment Button
+        EquipmentButton
         MarronButton
         HostAvatar
         LabelInputAdd
