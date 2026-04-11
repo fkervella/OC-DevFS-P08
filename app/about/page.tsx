@@ -1,3 +1,3 @@
 export default function AboutPage() {
-  return <div>Page Ajouter propriété</div>;
+  return <div>Page A propos</div>;
 }
