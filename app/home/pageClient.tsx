@@ -8,11 +8,11 @@ import PropertyCard from "@/app/_components/Property/PropertyCard";
 import { AppProperty } from "@/types/appTypes";
 
 interface HomepageClientProps {
-  property: AppProperty;
+  properties: AppProperty[];
 }
 
 export default function HomePageClient({
-  property,
+  properties,
 }: HomepageClientProps): ReactElement {
   return (
     <div className="flex flex-col gap-6 md:gap-8">
@@ -42,12 +42,9 @@ export default function HomePageClient({
 
       {/* Grille des propriétés - responsive */}
       <div className="flex flex-wrap gap-4 justify-center">
-        <PropertyCard propertyData={property} />
-        <PropertyCard propertyData={property} />
-        <PropertyCard propertyData={property} />
-        <PropertyCard propertyData={property} />
-        <PropertyCard propertyData={property} />
-        <PropertyCard propertyData={property} />
+        {properties.map((property) => (
+          <PropertyCard key={property.id} propertyData={property} />
+        ))}
       </div>
 
       {/* Section "Comment ça marche ?" */}

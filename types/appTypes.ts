@@ -31,3 +31,5 @@ export interface AppProperty {
     picture: string;
   };
 }
+
+export type Status = "idle" | "loading" | "success" | "error";
