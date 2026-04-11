@@ -21,7 +21,7 @@ export default function Button({
 }: ButtonProps): ReactElement {
   return (
     <button
-      className={`inter font-medium rounded-lg pt-2 pr-10 pb-2 pl-10 ${className}`}
+      className={`inter font-medium rounded-lg pt-2 pr-10 pb-2 pl-10 w-50 ${className} cursor-pointer`}
       onClick={onClick}
     >
       {name}
