@@ -24,7 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${inter.className} antialiased h-full`}>
+    <html
+      lang="fr"
+      className={`${inter.className} antialiased h-full max-w-280 m-auto`}
+    >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>
