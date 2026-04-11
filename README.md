@@ -39,14 +39,7 @@ next/image pour chargement des images et chargement paresseux des listes
     Composants :
         *Header
         *Footer
-        PropertyCard
-        EquipmentButton
         *Button
-        HostAvatar
-        LabelInputAdd
-        CurrentPageName
-        Localisation
-        BackButton
 
 ## Etape 4 : Création de la page d'accueil y compris responsive, loader
     Se connecter Page Login S1
@@ -56,6 +49,16 @@ next/image pour chargement des images et chargement paresseux des listes
 
     Afficher les logements dans la page accueil Page accueil S1
         sous forme de carte contenant image, titre, prix et bouton favori
+
+    
+    Composants :
+        PropertyCard
+        EquipmentButton
+        HostAvatar
+        LabelInputAdd
+        CurrentPageName
+        Localisation
+        BackButton
 
 ## Etape 5 : Création de la page détail d une propriété avec carrousel dynamique et tests unitaires
     Naviguer vers un logement depuis la page accueil Page logement S1
