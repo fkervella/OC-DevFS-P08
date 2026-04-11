@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ReactElement, useState } from "react";
 
 import Button from "../Button";
@@ -15,7 +15,6 @@ import NavButton from "../NavButton";
  */
 
 export default function HeaderClient(): ReactElement {
-  const pathname = usePathname();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const router = useRouter(); // Pour la navigation côté client
 
@@ -82,25 +81,21 @@ export default function HeaderClient(): ReactElement {
             <NavButton
               name="Accueil"
               page="/home"
-              isActive={pathname.startsWith("/home")}
               className="text-3xl pt-2 pb-2"
             />
             <NavButton
               name="A propos"
               page="/about"
-              isActive={pathname.startsWith("/about")}
               className="text-3xl pt-2 pb-2"
             />
             <NavButton
               name="Messagerie"
               page="/about"
-              isActive={pathname.startsWith("/chat")}
               className="text-3xl pt-2 pb-2"
             />
             <NavButton
               name="Favoris"
               page="/about"
-              isActive={pathname.startsWith("/favorites")}
               className="text-3xl pt-2 pb-2"
             />
             <Button
@@ -117,16 +112,8 @@ export default function HeaderClient(): ReactElement {
         id="nav-menu"
         className=" hidden lg:flex flex-row gap-5 items-center w-fit pt-3 pr-25 pb-3 pl-25 bg-white-background rounded-lg"
       >
-        <NavButton
-          name="Accueil"
-          page="/home"
-          isActive={pathname.startsWith("/home")}
-        />
-        <NavButton
-          name="A propos"
-          page="/about"
-          isActive={pathname.startsWith("/about")}
-        />
+        <NavButton name="Accueil" page="/home" />
+        <NavButton name="A propos" page="/about" />
         <Image
           src="/logoComplet.png"
           alt="Logo Kasa"

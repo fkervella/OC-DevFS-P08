@@ -4,7 +4,6 @@ import { ReactElement } from "react";
 interface NavButtonProps {
   name: string; // texte à afficher
   page: string; // lien vers lequel naviguer
-  isActive: boolean; // conditions pour indiquer que c'est la page active
   className?: string; // style d'affichage
 }
 
@@ -19,14 +18,15 @@ interface NavButtonProps {
 export default function NavButton({
   name,
   page,
-  isActive,
   className,
 }: NavButtonProps): ReactElement {
-  const text = isActive ? "font-bold text-mainRed" : "font-normal text-black";
   const additionalStyle = className ? className : "text-sm";
 
   return (
-    <Link href={page} className={`inter ${text} ${additionalStyle}`}>
+    <Link
+      href={page}
+      className={`inter font-normal text-black hover:font-bold hover:text-mainRed ${additionalStyle}`}
+    >
       {name}
     </Link>
   );
