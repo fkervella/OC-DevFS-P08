@@ -35,13 +35,13 @@ next/image pour chargement des images et chargement paresseux des listes
 
 ## Etape 3 : Création du layout et intégration du design global (composants, styles) identification des parties client et server
     *Proxy
-    Page 404 S1
+    *Page 404 S1
     Composants :
-        Header
-        Footer
+        *Header
+        *Footer
         PropertyCard
         EquipmentButton
-        MarronButton
+        *Button
         HostAvatar
         LabelInputAdd
         CurrentPageName
