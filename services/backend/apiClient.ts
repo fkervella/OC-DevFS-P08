@@ -10,7 +10,7 @@ const baseUrl =
 // Côté serveur, le token est injecté par apiServer.ts via la session.
 function getClientToken(): string | undefined {
   if (typeof document === "undefined") return undefined;
-  const match = document.cookie.match(/(?:^|;\s*)token=([^;]+)/);
+  const match = document.cookie.match(/(?:^|;\s*)session=([^;]+)/);
   return match?.[1];
 }
 

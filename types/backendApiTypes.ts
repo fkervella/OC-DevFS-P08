@@ -1,17 +1,17 @@
-export interface User {
+export interface BackendUser {
   id: number;
   name: string;
   picture: string;
   role: string;
 }
 
-export interface UpdateUser {
+export interface BackendUpdateUser {
   name: string;
   picture: string;
   role: string;
 }
 
-export interface Property {
+export interface BackendProperty {
   id: string;
   slug: string;
   title: string;
@@ -28,7 +28,7 @@ export interface Property {
   };
 }
 
-export interface UpdateProperty {
+export interface BackendUpdateProperty {
   title: string;
   description: string;
   cover: string;
@@ -37,31 +37,31 @@ export interface UpdateProperty {
   host_id: number;
 }
 
-export interface LoginRequest {
+export interface BackendLoginRequest {
   email: string;
   password: string;
 }
 
-export interface LoginResponse {
+export interface BackendLoginResponse {
   token: string;
-  user: User;
+  user: BackendUser;
 }
 
-export interface Rating {
+export interface BackendRating {
   id: number;
   score: number;
   comment: string;
   created_at: Date;
-  user: User;
+  user: BackendUser;
 }
 
-export interface PropertyRating {
+export interface BackendPropertyRating {
   rating_avg: number;
   ratings_count: number;
-  ratings: Rating[];
+  ratings: BackendRating[];
 }
 
-export interface Favorite {
+export interface BackendFavorite {
   id: string;
   slug: string;
   title: string;
@@ -71,16 +71,16 @@ export interface Favorite {
   price_per_night: number;
   rating_avg: number;
   ratings_count: number;
-  host: Host;
+  host: BackendHost;
 }
 
-interface Host {
+interface BackendHost {
   id: number;
   name: string;
   picture: string;
 }
 
-export interface Files {
+export interface BackendFiles {
   url: string;
   filename: string;
   size: number;
@@ -90,37 +90,37 @@ export interface Files {
   instructions: string;
 }
 
-export interface RequestResetResponse {
+export interface BackendRequestResetResponse {
   ok: boolean;
   message: string;
   token: string;
 }
 
-export interface ResetPasswordResponse {
+export interface BackendResetPasswordResponse {
   ok: boolean;
 }
 
 export type ApiResponses = {
   //Auth
-  login: LoginResponse;
-  register: LoginResponse;
-  requestPasswordRequestToken: RequestResetResponse;
-  resetPassword: ResetPasswordResponse;
+  login: BackendLoginResponse;
+  register: BackendLoginResponse;
+  requestPasswordRequestToken: BackendRequestResetResponse;
+  resetPassword: BackendResetPasswordResponse;
 
   //Properties
-  properties: Property[];
-  property: Property;
+  properties: BackendProperty[];
+  property: BackendProperty;
 
   //Users
-  users: User[];
-  user: User;
+  users: BackendUser[];
+  user: BackendUser;
 
   //Ratings
-  propertyRatings: Rating[];
+  propertyRatings: BackendRating[];
 
   //Favorites
-  propertyFavorites: PropertyRating;
-  userFavorites: Favorite[];
+  propertyFavorites: BackendPropertyRating;
+  userFavorites: BackendFavorite[];
 
   //Uploads
   image: { data: string };
