@@ -16,7 +16,7 @@ import NavButton from "../NavButton";
 
 export default function HeaderClient(): ReactElement {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const router = useRouter(); // Pour la navigation côté client
+  const router = useRouter();
 
   const handleButtonClick = (buttonName: string) => {
     if (buttonName === "addProperty") router.push("/favorites");
@@ -25,7 +25,7 @@ export default function HeaderClient(): ReactElement {
   return (
     <header role="banner" className="flex justify-center lg:mt-5 lg:mb-5">
       {/* Barre de menu mobile first*/}
-      <div className="flex flex-col gap-0 w-full lg:hidden">
+      <div className="flex flex-col w-full lg:hidden">
         <div className="flex flex-row lg:hidden justify-between items-center w-full pt-3 pr-5 pb-3 pl-5 bg-white-background ">
           <Image
             src="/logoSimple.png"
@@ -37,7 +37,7 @@ export default function HeaderClient(): ReactElement {
 
           {!isOpenMenu && (
             <button
-              className="lg:hidden cursor-pointer"
+              className="lg:hidden cursor-pointer z-50"
               onClick={() => setIsOpenMenu(true)}
               aria-label="Afficher/cacher le menu"
               aria-expanded={!isOpenMenu}
@@ -76,7 +76,7 @@ export default function HeaderClient(): ReactElement {
         {isOpenMenu && (
           <nav
             id="nav-menu"
-            className="flex lg:hidden flex-col lg:flex-row gap-5 items-start w-full pt-3 pr-5 pb-3 pl-5 bg-white-background"
+            className="flex flex-col gap-5 items-start w-full pt-3 pr-5 pb-3 pl-5 bg-white-background shadow-lg"
           >
             <NavButton
               name="Accueil"
