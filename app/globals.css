@@ -8,12 +8,20 @@
   --white: #FFFFFF;
   --grayLight: #F5F5F5;
   --grayDark: #565656;
+  --pinkLight: #DABFB8;
 }
 
 @theme inline {
   --color-background: var(--lightOrange);
   --color-white-background: var(--white);
   --color-mainRed: var(--mainRed);
+  --color-darkOrange: var(--darkOrange);
+  --color-lightOrange: var(--lightOrange);
+  --color-black: var(--black);
+  --color-white: var(--white);
+  --color-grayLight: var(--grayLight);
+  --color-grayDark: var(--grayDark);
+  --color-pinkLight: var(--pinkLight);
   
   --font-inter: "inter";
 }
