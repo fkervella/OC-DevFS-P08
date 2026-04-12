@@ -1,0 +1,28 @@
+{
+  "entryPointStrategy": "expand",
+  "entryPoints": [
+    "actions", 
+    "app",
+    "hooks",
+    "services",
+    "types",
+    "lib"
+  ],
+  "out": "docs",
+  "exclude": [
+    "eslint.config.mts",
+    "**/*.config.*",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/*.stories.tsx",
+    ".prettierrc",
+    ".next",
+    "node_modules",
+    "docs"
+  ],
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "tsconfig": "tsconfig.json",
+  "plugin": []
+}
