@@ -12,18 +12,19 @@ export default function FavoriteButton({
   const style = isFavorite
     ? "bg-mainRed hover:bg-grayLight"
     : "bg-grayLight hover:bg-mainRed";
-  const [favortie, setFavorite] = useState(isFavorite);
+  const [favorite, setFavorite] = useState(isFavorite);
 
   function handleClick() {
-    const next = !favortie;
+    const next = !favorite;
     setFavorite(next);
     onToggle?.(next);
   }
   return (
     <button
+      type="button"
       onClick={handleClick}
-      aria-label={isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
-      aria-pressed={isFavorite}
+      aria-label={favorite ? "Retirer des favoris" : "Ajouter aux favoris"}
+      aria-pressed={favorite}
       className={`group flex justify-center items-center w-10 h-10 rounded-lg transition-colors duration-100 ease-in-out cursor-pointer ${style}`}
     >
       <svg

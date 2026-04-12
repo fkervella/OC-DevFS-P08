@@ -19,7 +19,7 @@ export default function HeaderClient(): ReactElement {
   const router = useRouter();
 
   const handleButtonClick = (buttonName: string) => {
-    if (buttonName === "addProperty") router.push("/favorites");
+    if (buttonName === "addProperty") router.push("/addProperty");
   };
 
   return (
@@ -41,7 +41,7 @@ export default function HeaderClient(): ReactElement {
               onClick={() => setIsOpenMenu(true)}
               aria-label="Afficher/cacher le menu"
               aria-expanded={!isOpenMenu}
-              aria-controls="nav-menu"
+              aria-controls="nav-menu-mobile"
             >
               <Image
                 src="/iconMenu.png" //TODO résolution de l'image
@@ -75,27 +75,27 @@ export default function HeaderClient(): ReactElement {
         {/* Navigation mobile*/}
         {isOpenMenu && (
           <nav
-            id="nav-menu"
+            id="nav-menu-desktop"
             className="flex flex-col gap-5 items-start w-full pt-3 pr-5 pb-3 pl-5 bg-white-background shadow-lg"
           >
             <NavButton
-              name="Accueil"
+              name="Aller à la page d'accueil"
               page="/home"
               className="text-3xl pt-2 pb-2"
             />
             <NavButton
-              name="A propos"
+              name="Aller à la page à propos"
               page="/about"
               className="text-3xl pt-2 pb-2"
             />
             <NavButton
-              name="Messagerie"
-              page="/about"
+              name="Ouvrir la messagerie"
+              page="/chat"
               className="text-3xl pt-2 pb-2"
             />
             <NavButton
-              name="Favoris"
-              page="/about"
+              name="Voir mes favoris"
+              page="/favorites"
               className="text-3xl pt-2 pb-2"
             />
             <Button
@@ -129,13 +129,18 @@ export default function HeaderClient(): ReactElement {
           + Ajouter un logement
         </Link>
         <Link href="/favorites">
-          <Image src="/iconFavorite.png" alt="favoris" width={16} height={16} />
+          <Image
+            src="/iconFavorite.png"
+            alt="Voir mes favoris"
+            width={16}
+            height={16}
+          />
         </Link>
         <div>|</div>
         <Link href="/chat">
           <Image
             src="/iconMessage.png"
-            alt="Messagerie"
+            alt="Ouvrir la messagerie"
             width={16}
             height={16}
           />

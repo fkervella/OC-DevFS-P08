@@ -11,8 +11,8 @@ export default function HowDoesItWorksCard({
 }: HowDoesItWorksCardProps): ReactElement {
   return (
     <div className="bg-darkOrange rounded-lg w-60 h-40 pt-8 pr-4 pl-4 flex flex-col gap-2">
-      <div className="font-medium text-lg text-white">{title}</div>
-      <div className="font-normal text-xs text-white">{description}</div>
+      <h3 className="font-medium text-lg text-white">{title}</h3>
+      <p className="font-normal text-xs text-white">{description}</p>
     </div>
   );
 }

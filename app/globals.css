@@ -33,8 +33,19 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse {
+    animation: none;
+  }
+}
+
 body {
   background: var(--lightOrange);
   color: var(--black);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+:focus-visible {
+  outline: 3px solid var(--mainRed);
+  outline-offset: 2px;
 }

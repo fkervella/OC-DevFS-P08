@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ReactElement } from "react";
 
 import FavoriteButton from "@/app/_components/Common/FavoriteButton";
@@ -15,7 +16,7 @@ export default function PropertyCard({
     //TODO
   };
   return (
-    <a href={`/property/${propertyData.id}`}>
+    <Link href={`/property/${propertyData.id}`}>
       <div className="flex flex-col gap-2 bg-white relative w-89">
         <div className="relative h-94 w-89">
           <Image
@@ -34,12 +35,12 @@ export default function PropertyCard({
         </div>
         <div className="flex flex-col gap-2 pt-2 pr-4 pb-5 pl-4 justify-between h-44">
           <div className="flex flex-col gap-2">
-            <div className="text-lg font-medium text-wrap">
+            <h2 className="text-lg font-medium text-wrap">
               {propertyData.title}
-            </div>
-            <div className="text-sm font-normal text-grayDark">
+            </h2>
+            <p className="text-sm font-normal text-grayDark">
               {propertyData.location}
-            </div>
+            </p>
           </div>
           <div className="text-sm font-medium text-black">
             {propertyData.price_per_night}€
@@ -47,6 +48,6 @@ export default function PropertyCard({
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

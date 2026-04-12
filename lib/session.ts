@@ -58,7 +58,6 @@ export async function getSession(): Promise<AppCookieData | null> {
     throw new Error(`Failed to verify session : ${(error as Error).message}`, {
       cause: error,
     });
-
     return null;
   }
 }
