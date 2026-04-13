@@ -26,9 +26,8 @@ const encodedKey: Uint8Array = new TextEncoder().encode(secretKey);
 /**
  * encrypt fonction de création du JWT
  *
- * @export
  * @param {AppCookieData} payload donnée à chiffrer
- * @returns {Promise<string>} token chiffré
+ * @return {Promise<string>} token chiffré
  */
 
 export function encrypt(payload: AppCookieData): Promise<string> {
@@ -42,10 +41,8 @@ export function encrypt(payload: AppCookieData): Promise<string> {
 /**
  * decrypt fonction de déchiffrement du token JWT
  *
- * @export
- * @async
  * @param {string} token token à déchiffrer
- * @returns {Promise<AppCookieData>} En cas de réussite, données déchiffrées
+ * @return {Promise<AppCookieData>} En cas de réussite, données déchiffrées
  */
 
 export async function decrypt(token: string): Promise<AppCookieData> {

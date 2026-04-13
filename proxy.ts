@@ -53,10 +53,8 @@ function handlePublicRoute(): NextResponse {
 /**
  * proxy routeur de l'application
  *
- * @export
- * @async
  * @param {NextRequest} request page demandée
- * @returns {Promise<NextResponse>} page à afficher
+ * @return {Promise<NextResponse>} page à afficher
  */
 
 export default async function proxy(

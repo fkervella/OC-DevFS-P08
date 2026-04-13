@@ -4,7 +4,7 @@ import { ReactElement } from "react";
 /**
  * Footer affiche le footer sur les pages le nécessitant
  *
- * @returns {string} Code HTML du footer
+ * @return {string} Code HTML du footer
  */
 
 export default function Footer(): ReactElement {

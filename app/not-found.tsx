@@ -12,18 +12,20 @@ export default function NotFound() {
   return (
     <div className="flex-1 flex justify-center items-center">
       <div className="flex flex-col gap-2 items-center w-90">
-        <div className="text-mainRed text-8xl font-black">404</div>
-        <div className="text-center mb-5">
+        <h1 className="text-mainRed text-8xl font-black">404</h1>
+        <p className="text-center mb-5">
           Il semble que la page que vous cherchez ait pris des vacances ... ou
           n&apos;ait jamais existé
-        </div>
+        </p>
         <Button
-          name="Accueil"
+          text="Accueil"
+          type="button"
           className="bg-mainRed text-white"
           onClick={() => handleButtonClick("home")}
         />
         <Button
-          name="Logements"
+          text="Logements"
+          type="button"
           className="bg-mainRed text-white"
           onClick={() => handleButtonClick("properties")}
         />

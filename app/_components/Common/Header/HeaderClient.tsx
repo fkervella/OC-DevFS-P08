@@ -11,7 +11,7 @@ import NavButton from "../NavButton";
 /**
  * Header partie client renvoie le header du site
  *
- * @returns {ReactElement}  Code HTML du header
+ * @return {ReactElement}  Code HTML du header
  */
 
 export default function HeaderClient(): ReactElement {
@@ -99,7 +99,8 @@ export default function HeaderClient(): ReactElement {
               className="text-3xl pt-2 pb-2"
             />
             <Button
-              name="Ajouter un logement"
+              text="Ajouter un logement"
+              type="button"
               className="bg-mainRed text-white"
               onClick={() => handleButtonClick("addProperty")}
             />

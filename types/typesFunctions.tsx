@@ -7,7 +7,7 @@ import { BackendProperty } from "./backendApiTypes";
  * Chaque élément du tableau est converti avec des valeurs par défaut pour les champs manquants.
  *
  * @param backendProperties - Tableau des données du backend.
- * @returns AppProperty[] - Tableau des données adaptées pour le frontend.
+ * @return AppProperty[] - Tableau des données adaptées pour le frontend.
  */
 
 export function convertBackendToAppProperty(

@@ -1,9 +1,24 @@
 import { ReactElement } from "react";
 
-interface HowDoesItWorksCardProps {
+/**
+ * HowDoesItWorksCardProps type de données en entrée du composant HowDoesItWorksCard
+ *
+ * @interface HowDoesItWorksCardProps
+ * @typedef {HowDoesItWorksCardProps}
+ */
+export interface HowDoesItWorksCardProps {
   title: string; // titre à afficher
   description: string; // description à afficher
 }
+
+/**
+ * HowDoesItWorksCard Affichage d'un rectagle de la section Comment ça marche
+ *
+ * @param {HowDoesItWorksCardProps} param0
+ * @param {string} param0.title
+ * @param {string} param0.description
+ * @return {ReactElement} code HTML du composant
+ */
 
 export default function HowDoesItWorksCard({
   title,

@@ -7,10 +7,23 @@ import { ReactElement, useEffect } from "react";
 
 import Button from "./_components/Common/Button";
 
-interface ErrorProps {
+/**
+ * ErrorProps type de données en entrée du composant Error
+ *
+ * @interface ErrorProps
+ * @typedef {ErrorProps}
+ */
+
+export interface ErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
 }
+
+/**
+ * ErrorPage Affichage de la page d'erreur
+ *
+ * @return {ReactElement} code HTML de la page d'erreur
+ */
 
 export default function ErrorPage({ error, reset }: ErrorProps): ReactElement {
   useEffect(() => {
@@ -65,18 +78,21 @@ export default function ErrorPage({ error, reset }: ErrorProps): ReactElement {
 
         {/* Bouton reset — retente le rendu du segment sans recharger la page */}
         <Button
-          name="Réessayer"
+          text="Réessayer"
+          type="button"
           className="bg-mainRed text-white"
           onClick={reset}
         />
 
         <Button
-          name="Accueil"
+          text="Accueil"
+          type="button"
           className="bg-mainRed text-white"
           onClick={() => handleButtonClick("home")}
         />
         <Button
-          name="Logements"
+          text="Logements"
+          type="button"
           className="bg-mainRed text-white"
           onClick={() => handleButtonClick("properties")}
         />

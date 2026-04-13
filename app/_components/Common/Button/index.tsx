@@ -1,31 +1,41 @@
 import { ReactElement } from "react";
 
-interface ButtonProps {
-  name: string; // texte à afficher
+/**
+ * ButtonProps type de données en entrée du composant Button
+ *
+ * @interface ButtonProps
+ * @typedef {ButtonProps}
+ */
+export interface ButtonProps {
+  text: string; // texte à afficher
+  type: "submit" | "reset" | "button" | undefined; //type de bouton
   className?: string; // style d'affichage
   onClick?: () => void; // action à réaliser à l'appui sur le bouton
+  disabled?: boolean; // désactivation du bouton
 }
 
 /**
  * Button bouton d'action
  *
- * @export
  * @param {ButtonProps} props Props définies par l'interface ButtonProps
- * @returns {ReactElement} code HTML du bouton
+ * @return {ReactElement} code HTML du bouton
  */
 
 export default function Button({
-  name,
+  text,
+  type,
   className,
   onClick,
+  disabled,
 }: ButtonProps): ReactElement {
   return (
     <button
-      type="button"
+      type={type}
       className={`inter font-medium rounded-lg pt-2 pr-10 pb-2 pl-10 w-50 ${className} cursor-pointer`}
       onClick={onClick}
+      disabled={disabled}
     >
-      {name}
+      {text}
     </button>
   );
 }

@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { ReactElement } from "react";
 
-interface NavButtonProps {
+/**
+ * NavButtonProps type de données en entrée du composant NavButton
+ *
+ * @interface NavButtonProps
+ * @typedef {NavButtonProps}
+ */
+
+export interface NavButtonProps {
   name: string; // texte à afficher
   page: string; // lien vers lequel naviguer
   className?: string; // style d'affichage
@@ -10,9 +17,8 @@ interface NavButtonProps {
 /**
  * NavButton bouton de navigation pour le header
  *
- * @export
  * @param {NavButtonProps} props Props définies par l'interface NaButtonProps
- * @returns {ReactElement} code HTML du bouton
+ * @return {ReactElement} code HTML du bouton
  */
 
 export default function NavButton({

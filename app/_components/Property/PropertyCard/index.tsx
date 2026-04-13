@@ -5,9 +5,22 @@ import { ReactElement } from "react";
 import FavoriteButton from "@/app/_components/Common/FavoriteButton";
 import { AppProperty } from "@/types/appTypes";
 
-interface PropertyCardProps {
+/**
+ * PropertyCardProps type de données en entrée du composant PropertyCard
+ *
+ * @interface PropertyCardProps
+ * @typedef {PropertyCardProps}
+ */
+
+export interface PropertyCardProps {
   propertyData: AppProperty;
 }
+
+/**
+ * PropertyCard Composant pour afficher une propriété sous forme de carte
+ *
+ * @return {ReactElement} code HTML de la cart de propriété
+ */
 
 export default function PropertyCard({
   propertyData,

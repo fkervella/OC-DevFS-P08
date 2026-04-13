@@ -7,9 +7,22 @@ import HowDoesItWorksCard from "@/app/_components/Common/HowDoesItWorksCard";
 import PropertyCard from "@/app/_components/Property/PropertyCard";
 import { AppProperty } from "@/types/appTypes";
 
-interface HomepageClientProps {
+/**
+ * HomepageClientProps type de données en entrée du composant HomePageClient
+ *
+ * @interface HomepageClientProps
+ * @typedef {HomepageClientProps}
+ */
+
+export interface HomepageClientProps {
   properties: AppProperty[];
 }
+
+/**
+ * HomePageClient Composant d'affichage de la page d'accueil
+ *
+ * @return {ReactElement} Code HTML de la page d'accueil
+ */
 
 export default function HomePageClient({
   properties,
@@ -17,7 +30,7 @@ export default function HomePageClient({
   return (
     <div className="flex flex-col gap-6 md:gap-8">
       {/* Section héro */}
-      <div className="flex flex-col gap-4 text-center px-4">
+      <div className="flex flex-col gap-4 text-center px-4 mt-8">
         <h1 className="text-2xl md:text-3xl font-bold text-mainRed">
           Chez vous, partout et ailleurs
         </h1>
@@ -48,7 +61,7 @@ export default function HomePageClient({
       </div>
 
       {/* Section "Comment ça marche ?" */}
-      <div className="flex flex-col gap-6 md:gap-8 pt-8 pb-8 bg-white px-4">
+      <div className="flex flex-col gap-6 md:gap-8 pt-8 pb-8 bg-white px-4 mb-8 max-w-6xl">
         <h2 className="text-xl md:text-2xl font-semibold text-black text-center">
           Comment ça marche ?
         </h2>

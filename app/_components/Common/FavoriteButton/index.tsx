@@ -1,9 +1,24 @@
 import { ReactElement, useState } from "react";
 
-interface FavoriteButtonProps {
+/**
+ * FavoriteButtonProps type de données en entrée du composant FavoriteButton
+ *
+ * @interface FavoriteButtonProps
+ * @typedef {FavoriteButtonProps}
+ */
+export interface FavoriteButtonProps {
   isFavorite?: boolean;
   onToggle?: (newState: boolean) => void;
 }
+
+/**
+ * FavoriteButton
+ *
+ * @param {FavoriteButtonProps} param0 arguments pour l'affichage de FavoriteButtons
+ * @param {boolean} [param0.isFavorite=false]
+ * @param {(newState: boolean) => void} param0.onToggle
+ * @return {ReactElement} Code HTML du bouton
+ */
 
 export default function FavoriteButton({
   isFavorite = false,
@@ -50,15 +65,6 @@ export default function FavoriteButton({
           "
         />
       </svg>
-      {/*
-            <div className={`${style}  `}>
-          <Image 
-            src="/iconFavorite.png"
-            alt="Favoris"
-            width={16}
-            height={16}/>
-      </div>
- */}
     </button>
   );
 }

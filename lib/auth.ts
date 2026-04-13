@@ -5,11 +5,9 @@ import { AppUser } from "@/types/appTypes";
 /**
  * authenticate Fonction d'authentification de l'utilisateur au back-end
  *
- * @export
- * @async
  * @param {string} email email (identifiant) de l'utilisateur
  * @param {string} password mot de passe de l'utilisateur
- * @returns {Promise<AppUser>} en cas de réussite, données de l'utilisateur
+ * @return {Promise<AppUser>} en cas de réussite, données de l'utilisateur
  * @throws {Error} en cas d'échec, lance une erreur avec le message d'erreur du serveur ou un message générique
  */
 
