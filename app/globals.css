@@ -9,6 +9,8 @@
   --grayLight: #F5F5F5;
   --grayDark: #565656;
   --pinkLight: #DABFB8;
+  --redFont: #EF4444;
+  --lightOrange: #FFE8D9;
 }
 
 @theme inline {
@@ -22,6 +24,8 @@
   --color-grayLight: var(--grayLight);
   --color-grayDark: var(--grayDark);
   --color-pinkLight: var(--pinkLight);
+  --color-redFont: var(--redFont);
+  --color-lightOrange: var(--lightOrange);
   
   --font-inter: "inter";
 }
