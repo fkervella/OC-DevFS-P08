@@ -43,13 +43,12 @@ next/image pour chargement des images et chargement paresseux des listes
 
 ## Etape 4 : Création de la page d accueil y compris responsive, loader
     Se connecter Page Login S1
-        Formulaire de connexion fonctionnel
-        Message d erreur si identifiants invalides
-        Mot de passe sécurisé
+        *Formulaire de connexion fonctionnel
+        *Message d erreur si identifiants invalides
+        *Mot de passe sécurisé
 
     *Afficher les logements dans la page accueil Page accueil S1
         *sous forme de carte contenant image, titre, prix et bouton favori
-
     
     Composants :
         *PropertyCard
