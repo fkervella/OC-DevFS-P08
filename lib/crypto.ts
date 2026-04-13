@@ -69,8 +69,8 @@ function isAppCookieData(input: unknown): input is AppCookieData {
     typeof input === "object" &&
     input !== null &&
     "token" in input &&
-    "username" in input &&
-    "userId" in input &&
+    "name" in input &&
+    "email" in input &&
     "expiresAt" in input
   );
 }
