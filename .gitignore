@@ -42,4 +42,8 @@ next-env.d.ts
 
 *.swp
 
+#vscode
 .vscode/
+
+#generated documentation
+docs/

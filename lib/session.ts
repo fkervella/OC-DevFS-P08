@@ -15,10 +15,8 @@ export const SESSION_DURATION = 7 * 24 * 60 * 60 * 1000;
 /**
  * createSession fonction de création de la session et de la sauvegarde du cookie
  *
- * @export
- * @async
  * @param {AppCookieData} user données de l'utilisateur
- * @returns {Promise<void>} pas de retour
+ * @return {Promise<void>} pas de retour
  */
 export async function createSession(user: AppCookieData): Promise<void> {
   const expiresAt = new Date(Date.now() + SESSION_DURATION);
@@ -38,9 +36,7 @@ export async function createSession(user: AppCookieData): Promise<void> {
 /**
  * getSession fonction de récupération de la session à partir du cookie
  *
- * @export
- * @async
- * @returns {Promise<AppCookieData | null>} en cas de réussite, données du token contenu dans le cookie
+ * @return {Promise<AppCookieData | null>} en cas de réussite, données du token contenu dans le cookie
  */
 
 export async function getSession(): Promise<AppCookieData | null> {
@@ -58,7 +54,6 @@ export async function getSession(): Promise<AppCookieData | null> {
     throw new Error(`Failed to verify session : ${(error as Error).message}`, {
       cause: error,
     });
-
     return null;
   }
 }
@@ -66,9 +61,7 @@ export async function getSession(): Promise<AppCookieData | null> {
 /**
  * deleteSession fonction de suppression du cookie de session
  *
- * @export
- * @async
- * @returns {Promise<void>} pa de retour
+ * @return {Promise<void>} pa de retour
  */
 export async function deleteSession(): Promise<void> {
   const cookieStore = await cookies();
@@ -78,9 +71,7 @@ export async function deleteSession(): Promise<void> {
 /**
  * refreshSession Fonction permettant de rafraîchir la session
  *
- * @export
- * @async
- * @returns {Promise<AppCookieData | null>} données du cookie
+ * @return {Promise<AppCookieData | null>} données du cookie
  */
 
 export async function refreshSession(): Promise<AppCookieData | null> {

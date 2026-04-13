@@ -30,8 +30,7 @@ export const verifySession = cache(
 /**
  * getUserData récupération des données de l'utilsateur depuis  le cookie de session
  *
- * @export
- * @returns {Promise<AppCookieData | null>} données de l'utilisateur
+ * @return {Promise<AppCookieData | null>} données de l'utilisateur
  */
 
 export const getUserData = cache(async (): Promise<AppCookieData | null> => {

@@ -1,0 +1,35 @@
+{
+  "source": {
+    "include": ["actions", "app", "hooks", "lib", "public", "services", "types"],
+    "exclude": [
+      "node_modules",
+      ".next",
+      "dist",
+      "coverage",
+      "docs"
+    ],
+    "includePattern": ".+\\.(ts|tsx|js|jsx)$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true,
+    "encoding": "utf8"
+  },
+  "plugins": [
+      "node_modules/jsdoc-babel",
+      "plugins/markdown"
+  ],
+  "babel": {
+    "extensions": ["ts", "tsx", "js", "jsx"],
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript",
+      ["@babel/preset-react", { "runtime": "automatic" }]
+    ]
+  },
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true
+  }
+}

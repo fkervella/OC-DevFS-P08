@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ReactElement, useState } from "react";
 
 import Button from "../Button";
@@ -11,22 +11,21 @@ import NavButton from "../NavButton";
 /**
  * Header partie client renvoie le header du site
  *
- * @returns {ReactElement}  Code HTML du header
+ * @return {ReactElement}  Code HTML du header
  */
 
 export default function HeaderClient(): ReactElement {
-  const pathname = usePathname();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const router = useRouter(); // Pour la navigation côté client
+  const router = useRouter();
 
   const handleButtonClick = (buttonName: string) => {
-    if (buttonName === "addProperty") router.push("/favorites");
+    if (buttonName === "addProperty") router.push("/addProperty");
   };
 
   return (
     <header role="banner" className="flex justify-center lg:mt-5 lg:mb-5">
       {/* Barre de menu mobile first*/}
-      <div className="flex flex-col gap-0 w-full lg:hidden">
+      <div className="flex flex-col w-full lg:hidden">
         <div className="flex flex-row lg:hidden justify-between items-center w-full pt-3 pr-5 pb-3 pl-5 bg-white-background ">
           <Image
             src="/logoSimple.png"
@@ -38,11 +37,11 @@ export default function HeaderClient(): ReactElement {
 
           {!isOpenMenu && (
             <button
-              className="lg:hidden cursor-pointer"
+              className="lg:hidden cursor-pointer z-50"
               onClick={() => setIsOpenMenu(true)}
               aria-label="Afficher/cacher le menu"
               aria-expanded={!isOpenMenu}
-              aria-controls="nav-menu"
+              aria-controls="nav-menu-mobile"
             >
               <Image
                 src="/iconMenu.png" //TODO résolution de l'image
@@ -76,35 +75,32 @@ export default function HeaderClient(): ReactElement {
         {/* Navigation mobile*/}
         {isOpenMenu && (
           <nav
-            id="nav-menu"
-            className="flex lg:hidden flex-col lg:flex-row gap-5 items-start w-full pt-3 pr-5 pb-3 pl-5 bg-white-background"
+            id="nav-menu-desktop"
+            className="flex flex-col gap-5 items-start w-full pt-3 pr-5 pb-3 pl-5 bg-white-background shadow-lg"
           >
             <NavButton
-              name="Accueil"
+              name="Aller à la page d'accueil"
               page="/home"
-              isActive={pathname.startsWith("/home")}
               className="text-3xl pt-2 pb-2"
             />
             <NavButton
-              name="A propos"
+              name="Aller à la page à propos"
               page="/about"
-              isActive={pathname.startsWith("/about")}
               className="text-3xl pt-2 pb-2"
             />
             <NavButton
-              name="Messagerie"
-              page="/about"
-              isActive={pathname.startsWith("/chat")}
+              name="Ouvrir la messagerie"
+              page="/chat"
               className="text-3xl pt-2 pb-2"
             />
             <NavButton
-              name="Favoris"
-              page="/about"
-              isActive={pathname.startsWith("/favorites")}
+              name="Voir mes favoris"
+              page="/favorites"
               className="text-3xl pt-2 pb-2"
             />
             <Button
-              name="Ajouter un logement"
+              text="Ajouter un logement"
+              type="button"
               className="bg-mainRed text-white"
               onClick={() => handleButtonClick("addProperty")}
             />
@@ -117,16 +113,8 @@ export default function HeaderClient(): ReactElement {
         id="nav-menu"
         className=" hidden lg:flex flex-row gap-5 items-center w-fit pt-3 pr-25 pb-3 pl-25 bg-white-background rounded-lg"
       >
-        <NavButton
-          name="Accueil"
-          page="/home"
-          isActive={pathname.startsWith("/home")}
-        />
-        <NavButton
-          name="A propos"
-          page="/about"
-          isActive={pathname.startsWith("/about")}
-        />
+        <NavButton name="Accueil" page="/home" />
+        <NavButton name="A propos" page="/about" />
         <Image
           src="/logoComplet.png"
           alt="Logo Kasa"
@@ -142,13 +130,18 @@ export default function HeaderClient(): ReactElement {
           + Ajouter un logement
         </Link>
         <Link href="/favorites">
-          <Image src="/iconFavorite.png" alt="favoris" width={16} height={16} />
+          <Image
+            src="/iconFavorite.png"
+            alt="Voir mes favoris"
+            width={16}
+            height={16}
+          />
         </Link>
         <div>|</div>
         <Link href="/chat">
           <Image
             src="/iconMessage.png"
-            alt="Messagerie"
+            alt="Ouvrir la messagerie"
             width={16}
             height={16}
           />

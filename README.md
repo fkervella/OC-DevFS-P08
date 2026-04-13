@@ -41,24 +41,17 @@ next/image pour chargement des images et chargement paresseux des listes
         *Footer
         *Button
 
-## Etape 4 : Création de la page d'accueil y compris responsive, loader
+## Etape 4 : Création de la page d accueil y compris responsive, loader
     Se connecter Page Login S1
-        Formulaire de connexion fonctionnel
-        Message d'erreur si identifiants invalides
-        Mot de passe sécurisé
+        *Formulaire de connexion fonctionnel
+        *Message d erreur si identifiants invalides
+        *Mot de passe sécurisé
 
-    Afficher les logements dans la page accueil Page accueil S1
-        sous forme de carte contenant image, titre, prix et bouton favori
-
+    *Afficher les logements dans la page accueil Page accueil S1
+        *sous forme de carte contenant image, titre, prix et bouton favori
     
     Composants :
-        PropertyCard
-        EquipmentButton
-        HostAvatar
-        LabelInputAdd
-        CurrentPageName
-        Localisation
-        BackButton
+        *PropertyCard
 
 ## Etape 5 : Création de la page détail d une propriété avec carrousel dynamique et tests unitaires
     Naviguer vers un logement depuis la page accueil Page logement S1
@@ -75,6 +68,13 @@ next/image pour chargement des images et chargement paresseux des listes
     
     Contacter l'ĥote
         Bouton "envoyer un message" renvoie vers la page de messagerie
+
+    
+    Composants :
+        LabelInputAdd
+        CurrentPageName
+        Localisation
+        BackButton
 
 ## Etape 6 : Gestion des favoris, dans localStorage
     Ajouter des favoris dans la page accueil

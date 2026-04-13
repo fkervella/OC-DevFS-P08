@@ -10,10 +10,8 @@ import { createSession, deleteSession, SESSION_DURATION } from "@/lib/session";
  * Tentative d'authentification au backend
  * Création d'un cookie pour stocker le token
  *
- * @export
- * @async
  * @param {FormData} formData Données du formulaire de connexion utilisateur
- * @returns {Promise<{success: boolean, error?: string}>} Redirection vers la page dashboard en cas de succès
+ * @return {Promise<{success: boolean, error?: string}>} Redirection vers la page dashboard en cas de succès
  */
 
 export async function LoginAction(
@@ -45,9 +43,7 @@ export async function LoginAction(
  * logout Déconnexion de l'utilisateur
  * Suppression du cookie
  *
- * @export
- * @async
- * @returns {*}  Rediction vers la page de login
+ * @return {*}  Rediction vers la page de login
  */
 
 export async function logout() {
