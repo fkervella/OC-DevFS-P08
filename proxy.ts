@@ -8,7 +8,7 @@ import { getSession } from "@/lib/session";
  */
 const publicRoutes = [
   "/",
-  "/home",
+  "/properties",
   "/about",
   "/login",
   "/signin",
