@@ -29,7 +29,7 @@ export default function PropertyCard({
     //TODO
   };
   return (
-    <Link href={`/property/${propertyData.id}`}>
+    <Link href={`/properties/${propertyData.id}`}>
       <div className="flex flex-col gap-2 bg-white relative w-89">
         <div className="relative h-94 w-89">
           <Image

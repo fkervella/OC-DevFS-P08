@@ -80,7 +80,7 @@ export default function HeaderClient(): ReactElement {
           >
             <NavButton
               name="Aller à la page d'accueil"
-              page="/home"
+              page="/properties"
               className="text-3xl pt-2 pb-2"
             />
             <NavButton
@@ -113,7 +113,7 @@ export default function HeaderClient(): ReactElement {
         id="nav-menu"
         className=" hidden lg:flex flex-row gap-5 items-center w-fit pt-3 pr-25 pb-3 pl-25 bg-white-background rounded-lg"
       >
-        <NavButton name="Accueil" page="/home" />
+        <NavButton name="Accueil" page="/properties" />
         <NavButton name="A propos" page="/about" />
         <Image
           src="/logoComplet.png"
