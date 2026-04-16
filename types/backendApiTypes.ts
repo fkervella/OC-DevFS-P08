@@ -40,6 +40,9 @@ export interface BackendProperty {
   rating_avg: number;
   ratings_count: number;
   host: BackendHost;
+  equipments: string[];
+  pictures: string[];
+  tags: string[];
 }
 
 /**

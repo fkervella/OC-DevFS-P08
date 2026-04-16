@@ -24,17 +24,11 @@ export function convertBackendToAppProperty(
     return backendData.map((property) => ({
       ...property,
       favorite: false,
-      pictures: [],
-      equipments: [],
-      tags: [],
     }));
   }
   // Sinon, on traite comme un seul objet
   return {
     ...backendData,
     favorite: false,
-    pictures: [],
-    equipments: [],
-    tags: [],
   };
 }
