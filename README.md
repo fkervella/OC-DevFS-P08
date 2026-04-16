@@ -54,8 +54,8 @@ next/image pour chargement des images et chargement paresseux des listes
         *PropertyCard
 
 ## Etape 5 : Création de la page détail d une propriété avec carrousel dynamique et tests unitaires
-    Naviguer vers un logement depuis la page accueil Page logement S1
-        Redirection vers la page de détails du logement
+    *Naviguer vers un logement depuis la page accueil Page logement S1
+        *Redirection vers la page de détails du logement
     
     Afficher les détails d'une propriété
         Carrousel navigable avec animations fluides et discrètes
@@ -66,8 +66,8 @@ next/image pour chargement des images et chargement paresseux des listes
         Eléments collapse interactifs peuvent être ouverts et fermés grâce au clic avec animation fluide et discrète
         Tests unitaires vérifiant le fonctionnement du carrousel réalisés
     
-    Contacter l'ĥote
-        Bouton "envoyer un message" renvoie vers la page de messagerie
+    *Contacter l'ĥote
+        *Bouton "envoyer un message" renvoie vers la page de messagerie
 
     
     Composants :
