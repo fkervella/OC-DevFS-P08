@@ -7,6 +7,9 @@ import Button from "@/app/_components/Common/Button";
 import HostInfos from "@/app/_components/Common/HostInfos";
 import PicturesDisplay from "@/app/_components/Common/PicturesDisplay";
 import PropertyInfos from "@/app/_components/Common/PropertyInfos";
+import ModalLayout from "@/app/_components/Modal/ModalLayout";
+import PicturesCarouselModalContent from "@/app/_components/Property/PicturesCarouselModalContent";
+import useModal from "@/hooks/useModal";
 import { AppProperty } from "@/types/appTypes";
 
 export interface PropertyClientProps {
@@ -16,24 +19,53 @@ export interface PropertyClientProps {
 export default function PropertyClient({
   property,
 }: PropertyClientProps): ReactElement {
+  const { modalState, openModal, closeModal, renderContent } = useModal();
+
   const handleGoBackClick = () => {
     redirect("/properties");
   };
 
+  // Action de cette page à l'issue de la consulltation des images : fermeture de la popup
+  const handleCloseModal = async () => {
+    closeModal();
+  };
+
   return (
-    <div className="flex flex-col gap-2">
-      <Button
-        text="← Retour aux annonces"
-        type="button"
-        onClick={handleGoBackClick}
-        className="bg-grayLight p-2 text-nowrap w-fit text-sm font-medium text-grayDark"
-        disabled={false}
-      />
-      <div className="grid grid-cols-[2fr_1fr] grid-rows-2 gap-2 mb-8">
-        <PicturesDisplay property={property} />
-        <HostInfos property={property} />
-        <PropertyInfos property={property} />
+    <>
+      <div className="flex flex-col gap-2 inert={modalState.isOpen}">
+        <Button
+          text="← Retour aux annonces"
+          type="button"
+          onClick={handleGoBackClick}
+          className="bg-grayLight p-2 text-nowrap w-fit text-sm font-medium text-grayDark"
+          disabled={false}
+        />
+        <div className="grid grid-cols-[2fr_1fr] grid-rows-2 gap-2 mb-8">
+          <button
+            onClick={() =>
+              openModal(
+                property.title,
+                <PicturesCarouselModalContent
+                  property={property}
+                  onSubmitSuccess={handleCloseModal}
+                />,
+              )
+            }
+          >
+            <PicturesDisplay property={property} />
+          </button>
+          <HostInfos property={property} />
+          <PropertyInfos property={property} />
+        </div>
       </div>
-    </div>
+      {/* Modale générique */}
+      <ModalLayout
+        isOpen={modalState.isOpen}
+        onClose={closeModal}
+        title={modalState.title}
+      >
+        {renderContent()}
+      </ModalLayout>
+    </>
   );
 }
