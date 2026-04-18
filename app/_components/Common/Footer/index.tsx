@@ -11,7 +11,7 @@ export default function Footer(): ReactElement {
   return (
     <footer
       role="contentinfo"
-      className="bg-white flex flex-col lg:flex-row lg:justify-between gap-2 items-center pt-2 pr-10 pb-2 pl-10"
+      className="bg-white flex flex-row justify-between gap-2 items-center pt-2 pr-4 lg:pr-10 pb-2 pl-4 lg:pl-10"
     >
       <Image
         src="/logoSimple.png"

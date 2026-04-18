@@ -8,9 +8,13 @@ import { AppProperty } from "@/types/appTypes";
 
 export interface HostInfosProps {
   property: AppProperty; // données d'une propriété
+  className: string;
 }
 
-export default function HostInfos({ property }: HostInfosProps): ReactElement {
+export default function HostInfos({
+  property,
+  className,
+}: HostInfosProps): ReactElement {
   const handleHostContactClick = () => {
     redirect("mailto:host@example.com");
   };
@@ -20,7 +24,9 @@ export default function HostInfos({ property }: HostInfosProps): ReactElement {
   };
 
   return (
-    <div className="bg-white rounded-lg pt-6 pr-4 pb-6 pl-6 flex flex-col gap-2 h-fit">
+    <div
+      className={`bg-white rounded-lg pt-6 pr-4 pb-6 pl-6 flex flex-col gap-2 h-fit ${className}`}
+    >
       <h2 className="text-base font-medium text-black">Votre hôte</h2>
       <div className="flex flex-row justify-between mb-4 items-center">
         <Image
