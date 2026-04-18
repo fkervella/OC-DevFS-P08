@@ -37,10 +37,10 @@ export default function PropertyClient({
           text="← Retour aux annonces"
           type="button"
           onClick={handleGoBackClick}
-          className="bg-grayLight p-2 text-nowrap w-fit text-sm font-medium text-grayDark"
+          className="bg-grayLight text-nowrap w-fit text-sm font-medium text-grayDark cursor-pointer"
           disabled={false}
         />
-        <div className="grid grid-cols-[2fr_1fr] grid-rows-2 gap-2 mb-8">
+        <div className="grid grid-cols-[2fr_1fr] gap-2 mb-8">
           <button
             onClick={() =>
               openModal(
@@ -51,6 +51,7 @@ export default function PropertyClient({
                 />,
               )
             }
+            className="p-0 m-0 cursor-pointer"
           >
             <PicturesDisplay property={property} />
           </button>

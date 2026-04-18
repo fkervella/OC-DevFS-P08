@@ -11,16 +11,6 @@ export interface ModalLayoutProps {
   children: ReactNode;
 }
 
-/**
- * Layout des fenêtres modales
- *
- * @param {boolean} isOpen modale ouverte
- * @param {Function} onClose action à réaliser à la fermture de la modale
- * @param {string} title Titre de la modale
- * @param {string} children Contenu de la modale
- * @return {string} Code HTML de la modale
- */
-
 export default function ModalLayout({
   isOpen,
   onClose,
