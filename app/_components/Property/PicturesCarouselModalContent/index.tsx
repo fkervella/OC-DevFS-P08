@@ -92,25 +92,29 @@ export default function PicturesCarouselModalContent({
   return (
     <div className="flex flex-col gap-4 h-full">
       {/* Zone carousel */}
+      
       <div className="relative w-full h-[70vh] overflow-hidden shrink-0">
-        <button
-          onClick={previousSlide}
-          disabled={isAnimating}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl"
-          aria-label="Image précédente"
-        >
-          ‹
-        </button>
+        {(property.pictures.length > 1) && (
+          <>
+            <button
+              onClick={previousSlide}
+              disabled={isAnimating}
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl"
+              aria-label="Image précédente"
+            >
+              ‹
+            </button>
 
-        <button
-          onClick={nextSlide}
-          disabled={isAnimating}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl"
-          aria-label="Image suivante"
-        >
-          ›
-        </button>
-
+            <button
+              onClick={nextSlide}
+              disabled={isAnimating}
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl"
+              aria-label="Image suivante"
+            >
+              ›
+            </button>
+          </>
+        )}
         <div
           className="flex h-full w-full"
           style={{

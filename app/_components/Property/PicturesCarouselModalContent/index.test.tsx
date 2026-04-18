@@ -27,6 +27,22 @@ const mockProperty = {
   host: { id: 1, name: 'Host', picture: '/host.jpg' },
 };
 
+const mockPropertyOnePicture = {
+  id: '1',
+  slug: 'test-property',
+  title: 'Test Property',
+  description: 'Description test',
+  cover: '/cover.jpg',
+  location: 'Paris',
+  price_per_night: 100,
+  rating_avg: 4.5,
+  ratings_count: 10,
+  pictures: ['/img1.jpg'],
+  equipments: [],
+  tags: [],
+  host: { id: 1, name: 'Host', picture: '/host.jpg' },
+};
+
 const onSubmitSuccess = vi.fn();
 
 describe('PicturesCarouselModalContent', () => {
@@ -104,6 +120,21 @@ describe('PicturesCarouselModalContent', () => {
   });
 
   // ─── Navigation par boutons ──────────────────────────────────────────────────
+
+  it('pas de bouton précédent/suivant si une seule image ', async () => {
+    render(<PicturesCarouselModalContent property={mockPropertyOnePicture} onSubmitSuccess={onSubmitSuccess} />);
+
+    expect(screen.queryByRole('button', { name: 'Image précédente' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Image suivante' })).not.toBeInTheDocument();
+  });
+
+  it("boutons précédent/suivant présents si plus qu'une image ", async () => {
+    render(<PicturesCarouselModalContent property={mockProperty} onSubmitSuccess={onSubmitSuccess} />);
+
+    expect(screen.getByRole('button', { name: 'Image précédente' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Image suivante' })).toBeInTheDocument();
+  });
+
 
   it('bouton suivant : passe à l\'image 2', async () => {
     render(<PicturesCarouselModalContent property={mockProperty} onSubmitSuccess={onSubmitSuccess} />);
