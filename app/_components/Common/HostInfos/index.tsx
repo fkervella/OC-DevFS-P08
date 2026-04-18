@@ -12,7 +12,7 @@ export interface HostInfosProps {
 
 export default function HostInfos({ property }: HostInfosProps): ReactElement {
   const handleHostContactClick = () => {
-    console.log("handleHostContactClick"); //TODO
+    redirect("mailto:host@example.com");
   };
 
   const handleSendMessageClick = () => {
