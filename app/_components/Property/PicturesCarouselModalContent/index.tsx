@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { ReactElement, useCallback, useEffect, useState } from "react";
 
@@ -9,94 +8,149 @@ export interface PicturesCarouselModalContentProps {
   property: AppProperty;
   onSubmitSuccess: () => void;
 }
-/**
- * CreateProjectModalContent Composant d'afficahge du contenu de la modale de création de projet
- *
- * @param {Function} onSubmitSuccess action à réaliser à la soumission du formulaire
- * @return {string} Code HTML du formulaire de création de projet
- */
 
 export default function PicturesCarouselModalContent({
   property,
 }: PicturesCarouselModalContentProps): ReactElement {
+  const pictures = property.pictures;
+  const total = pictures.length;
+
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [offset, setOffset] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [transition, setTransition] = useState("");
 
-  const goToIndex = useCallback((newIndex: number) => {
-    setSelectedImageIndex(newIndex);
-  }, []);
+  // Slots affichés dans la bande : [gauche, centre, droite]
+  // Par défaut : [prev, current, next]
+  const [slots, setSlots] = useState([
+    (0 - 1 + total) % total,
+    0,
+    (0 + 1) % total,
+  ]);
 
-  // Changement d'image à la souris
-  const handlePictureClick = (index: number) => {
-    goToIndex(index);
-  };
+  const goToIndex = useCallback(
+    (newIndex: number) => {
+      if (isAnimating || newIndex === selectedImageIndex) return;
 
-  // Changement d'image au clavier
-  const handleImageChange = useCallback(
-    (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") {
-        const newIndex =
-          selectedImageIndex + 1 >= property.pictures.length
-            ? 0
-            : selectedImageIndex + 1;
-        goToIndex(newIndex);
-      } else if (event.key === "ArrowLeft") {
-        const newIndex =
-          selectedImageIndex - 1 < 0
-            ? property.pictures.length - 1
-            : selectedImageIndex - 1;
-        goToIndex(newIndex);
+      // Détermine la direction visuelle
+      // On compare les positions dans le tableau de façon circulaire
+      const distForward = (newIndex - selectedImageIndex + total) % total;
+      const distBackward = (selectedImageIndex - newIndex + total) % total;
+      const direction = distForward <= distBackward ? "right" : "left";
+
+      // Construction des slots : [image-qui-sort-du-côté-opposé, actuelle, cible]
+      // ou [cible, actuelle, image-qui-sort-du-côté-opposé]
+      if (direction === "right") {
+        // La bande est : [ quelconque | actuelle | cible ]
+        // On translate vers la gauche (-100%) pour amener la cible
+        setSlots([selectedImageIndex, selectedImageIndex, newIndex]);
+      } else {
+        // La bande est : [ cible | actuelle | quelconque ]
+        // On translate vers la droite (+100%) pour amener la cible
+        setSlots([newIndex, selectedImageIndex, selectedImageIndex]);
       }
+
+      const targetOffset = direction === "right" ? -100 : 100;
+
+      setIsAnimating(true);
+      setTransition("transform 0.35s ease-in-out");
+      setOffset(targetOffset);
+
+      setTimeout(() => {
+        setTransition("");
+        setOffset(0);
+        setSelectedImageIndex(newIndex);
+        // Remet les slots normaux une fois la transition terminée
+        setSlots([
+          (newIndex - 1 + total) % total,
+          newIndex,
+          (newIndex + 1) % total,
+        ]);
+        setIsAnimating(false);
+      }, 350);
     },
-    [selectedImageIndex, property.pictures, goToIndex],
+    [isAnimating, selectedImageIndex, total],
   );
 
+  const nextSlide = useCallback(() => {
+    goToIndex((selectedImageIndex + 1) % total);
+  }, [selectedImageIndex, total, goToIndex]);
+
+  const previousSlide = useCallback(() => {
+    goToIndex((selectedImageIndex - 1 + total) % total);
+  }, [selectedImageIndex, total, goToIndex]);
+
   useEffect(() => {
-    document.addEventListener("keydown", handleImageChange);
-    return () => {
-      document.removeEventListener("keydown", handleImageChange);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") nextSlide();
+      if (e.key === "ArrowLeft") previousSlide();
     };
-  }, [handleImageChange]);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [nextSlide, previousSlide]);
 
   return (
     <div className="flex flex-col gap-4 h-full">
+      {/* Zone carousel */}
       <div className="relative w-full h-[70vh] overflow-hidden shrink-0">
-        <div className={`flex flex-row gap-2`}>
-          {property.pictures.map((picture: string, index: number) => {
-            const visibility = index === selectedImageIndex ? "" : "hidden";
+        <button
+          onClick={previousSlide}
+          disabled={isAnimating}
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl"
+          aria-label="Image précédente"
+        >
+          ‹
+        </button>
 
-            return (
+        <button
+          onClick={nextSlide}
+          disabled={isAnimating}
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl"
+          aria-label="Image suivante"
+        >
+          ›
+        </button>
+
+        <div
+          className="flex h-full w-full"
+          style={{
+            transform: `translateX(calc(-100% + ${offset}%))`,
+            transition,
+            willChange: "transform",
+          }}
+        >
+          {slots.map((pictureIndex, slotPosition) => (
+            <div key={slotPosition} className="relative shrink-0 w-full h-full">
               <Image
-                key={index}
-                src={picture}
-                alt=""
+                src={pictures[pictureIndex]}
+                alt={`Image ${pictureIndex + 1} de ${property.title}`}
                 fill
-                className={`rounded-lg object-contain ${visibility}`}
+                className="object-contain rounded-lg"
                 loading="eager"
-                sizes="(max-width: 768px) 90vw,"
+                sizes="(max-width: 768px) 90vw, 80vw"
               />
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
-      <div className="flex flex-row gap-2 flex-wrap w-full items-center justify-center">
-        {property.pictures.map((picture: string, index: number) => {
-          const border =
-            selectedImageIndex === index ? "border-4 border-mainRed" : "";
 
-          return (
-            <button key={picture} onClick={() => handlePictureClick(index)}>
-              <Image
-                src={picture}
-                alt={`Image secondaire ${index + 1} de ${property.title}`}
-                width={82}
-                height={82}
-                className={`w-20 h-20 rounded-md object-cover ${border} transition-all duration-200`}
-                loading="eager"
-                sizes="(max-width: 768px) 100vw, 82px"
-              />
-            </button>
-          );
-        })}
+      {/* Miniatures */}
+      <div className="flex flex-row gap-2 flex-wrap w-full items-center justify-center">
+        {pictures.map((picture: string, index: number) => (
+          <button key={picture} onClick={() => goToIndex(index)}>
+            <Image
+              src={picture}
+              alt={`Image secondaire ${index + 1} de ${property.title}`}
+              width={82}
+              height={82}
+              className={`w-20 h-20 rounded-md object-cover transition-all duration-200 ${
+                selectedImageIndex === index ? "border-4 border-mainRed" : ""
+              }`}
+              loading="eager"
+              sizes="(max-width: 768px) 100vw, 82px"
+            />
+          </button>
+        ))}
       </div>
     </div>
   );
