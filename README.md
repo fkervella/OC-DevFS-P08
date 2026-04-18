@@ -54,27 +54,20 @@ next/image pour chargement des images et chargement paresseux des listes
         *PropertyCard
 
 ## Etape 5 : Création de la page détail d une propriété avec carrousel dynamique et tests unitaires
-    Naviguer vers un logement depuis la page accueil Page logement S1
-        Redirection vers la page de détails du logement
+    *Naviguer vers un logement depuis la page accueil Page logement S1
+        *Redirection vers la page de détails du logement
     
     Afficher les détails d'une propriété
-        Carrousel navigable avec animations fluides et discrètes
-        Carrousel boucle
-        Carrousel avec hauteur fixe
-        Carrousel accessible au clavier
-        Carrousel n'affiche pas les flèches lorsqu'il n'y a qu'une seule image
-        Eléments collapse interactifs peuvent être ouverts et fermés grâce au clic avec animation fluide et discrète
-        Tests unitaires vérifiant le fonctionnement du carrousel réalisés
+        *Carrousel navigable avec animations fluides et discrètes
+        *Carrousel boucle
+        *Carrousel avec hauteur fixe
+        *Carrousel accessible au clavier
+        *Carrousel n'affiche pas les flèches lorsqu'il n'y a qu'une seule image
+        *Eléments collapse interactifs peuvent être ouverts et fermés grâce au clic avec animation fluide et discrète
+        *Tests unitaires vérifiant le fonctionnement du carrousel réalisés
     
-    Contacter l'ĥote
-        Bouton "envoyer un message" renvoie vers la page de messagerie
-
-    
-    Composants :
-        LabelInputAdd
-        CurrentPageName
-        Localisation
-        BackButton
+    *Contacter l'ĥote
+        *Bouton "envoyer un message" renvoie vers la page de messagerie
 
 ## Etape 6 : Gestion des favoris, dans localStorage
     Ajouter des favoris dans la page accueil

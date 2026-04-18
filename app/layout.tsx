@@ -24,10 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="fr"
-      className={`${inter.className} antialiased h-full max-w-280 m-auto`}
-    >
+    <html lang="fr" className={`${inter.className} antialiased h-full`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>
@@ -36,7 +33,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-background">
         <Header />
-        <main className="flex flex-1">{children}</main>
+        <main className="flex flex-1 max-w-280 m-auto w-full">{children}</main>
         <Footer />
       </body>
     </html>

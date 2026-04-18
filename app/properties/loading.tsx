@@ -1,4 +1,3 @@
-// app/home/loading.tsx
 import { ReactElement } from "react";
 
 import HowDoesItWorksCardSkeleton from "@/app/_components/Loader/HowDoesItWorksCardSkeleton";

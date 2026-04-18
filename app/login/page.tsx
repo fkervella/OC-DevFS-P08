@@ -44,7 +44,7 @@ export default function LoginPage(): ReactElement {
         if (!loginStatus.success) {
           setLoginError(loginStatus.error ?? "Une erreur est survenue");
         } else {
-          router.push("/home");
+          router.push("/properties");
         }
       } catch (error) {
         const errorMessage =
