@@ -70,11 +70,13 @@ next/image pour chargement des images et chargement paresseux des listes
         *Bouton "envoyer un message" renvoie vers la page de messagerie
 
 ## Etape 6 : Gestion des favoris, dans localStorage
+    *Création de la page favoris
+
     Ajouter des favoris dans la page accueil
-        icone s'anime lors de la sélection d'un favori
-        logement apparaît dans la page des favoris
+        *icone s'anime lors de la sélection d'un favori
+        *logement apparaît dans la page des favoris
         tests unitaires des favoris réalisés
-        enregistrment dans le stockage local avec Context et LocalStorage
+        *enregistrment dans le stockage local avec Context et LocalStorage
 
 ## Etape 7 : Ajout d un sitemap
 
