@@ -6,6 +6,8 @@ import { Inter } from "next/font/google";
 import Footer from "@/app/_components/Common/Footer";
 import Header from "@/app/_components/Common/Header";
 
+import { FavoritesProvider } from "./context/FavoriteContext";
+
 /**
  * Inter définition d'une font disponible
  *
@@ -32,9 +34,13 @@ export default function RootLayout({
         </title>
       </head>
       <body className="min-h-full flex flex-col bg-background">
-        <Header />
-        <main className="flex flex-1 max-w-280 m-auto w-full">{children}</main>
-        <Footer />
+        <FavoritesProvider>
+          <Header />
+          <main className="flex flex-1 max-w-280 m-auto w-full">
+            {children}
+          </main>
+          <Footer />
+        </FavoritesProvider>
       </body>
     </html>
   );
