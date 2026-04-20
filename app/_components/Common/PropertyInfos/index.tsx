@@ -31,14 +31,14 @@ export default function PropertyInfos({
       <p className="font-normal text-sm text-black mb-6">
         {property.description}
       </p>
-      <h3 className="text-sm font-normal text-black mb-2">Equipements</h3>
+      <h2 className="text-sm font-normal text-black mb-2">Equipements</h2>
 
       <div className="w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-6">
         {property.equipments.map((equipment: string) => (
           <PropertyItem key={equipment} text={equipment} />
         ))}
       </div>
-      <h3 className="text-sm font-normal text-black">Catéogries</h3>
+      <h2 className="text-sm font-normal text-black">Catégories</h2>
       <div className="w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {property.tags.map((tag: string) => (
           <PropertyItem key={tag} text={tag} />

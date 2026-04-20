@@ -66,6 +66,7 @@ export default function ModalLayout({
         className="bg-white w-full h-screen flex flex-col transform transition-all duration-300"
         role="dialog"
         aria-modal="true"
+        aria-labelledby="modal-title"
       >
         {/* En-tête de la modale */}
         <div className="flex justify-between items-center p-4 ">

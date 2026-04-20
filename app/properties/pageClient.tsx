@@ -48,7 +48,7 @@ export default function HomePageClient({
           width={1200}
           height={675}
           className="w-full h-auto max-h-75 md:max-h-125 rounded-2xl object-cover"
-          loading="eager"
+          priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
         />
       </div>

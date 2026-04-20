@@ -75,7 +75,7 @@ export default function HeaderClient(): ReactElement {
         {/* Navigation mobile*/}
         {isOpenMenu && (
           <nav
-            id="nav-menu-desktop"
+            id="nav-menu-mobile"
             className="flex flex-col gap-5 items-start w-full pt-3 pr-5 pb-3 pl-5 bg-white-background shadow-lg"
           >
             <NavButton
@@ -110,7 +110,7 @@ export default function HeaderClient(): ReactElement {
 
       {/* Navigation grand écran*/}
       <nav
-        id="nav-menu"
+        id="nav-menu-desktop"
         className=" hidden lg:flex flex-row gap-5 items-center w-fit pt-3 pr-25 pb-3 pl-25 bg-white-background rounded-lg"
       >
         <NavButton name="Accueil" page="/properties" />
@@ -129,7 +129,7 @@ export default function HeaderClient(): ReactElement {
         >
           + Ajouter un logement
         </Link>
-        <Link href="/favorites">
+        <Link href="/favorites" aria-label="Voir mes favoris">
           <Image
             src="/iconFavorite.png"
             alt="Voir mes favoris"
@@ -138,7 +138,7 @@ export default function HeaderClient(): ReactElement {
           />
         </Link>
         <div>|</div>
-        <Link href="/chat">
+        <Link href="/chat" aria-label="Ouvrir la messagerie">
           <Image
             src="/iconMessage.png"
             alt="Ouvrir la messagerie"

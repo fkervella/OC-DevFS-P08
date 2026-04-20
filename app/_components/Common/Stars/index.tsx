@@ -23,7 +23,7 @@ export default function Stars({ number }: StarsProps): ReactElement {
     <div className="rounded-lg pt-2 pr-2 pb-2 pl-2 h-fit bg-grayLight flex flex-rom gap-2 items-center">
       <Image
         src="/iconStar.png"
-        alt=""
+        alt="favori"
         width={16}
         height={16}
         className="h-5 w-auto"

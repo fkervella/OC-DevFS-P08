@@ -31,7 +31,7 @@ export default function HostInfos({
       <div className="flex flex-row justify-between mb-4 items-center">
         <Image
           src={property.host.picture}
-          alt=""
+          alt={`Avatar de ${property.host.name}`}
           width={82}
           height={82}
           className="w-full h-auto max-h-20 max-w-20  rounded-md object-fit"

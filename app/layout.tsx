@@ -32,11 +32,26 @@ export default function RootLayout({
         <title>
           Kasa Location d appartements et de maisons entre particuliers
         </title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="min-h-full flex flex-col bg-background">
         <FavoritesProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-mainRed focus:p-2 focus:rounded"
+          >
+            Aller au contenu principal
+          </a>
           <Header />
-          <main className="flex flex-1 max-w-280 m-auto w-full">
+          <main
+            id="main-content"
+            className="flex flex-1 max-w-280 m-auto w-full"
+          >
             {children}
           </main>
           <Footer />

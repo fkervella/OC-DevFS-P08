@@ -52,6 +52,7 @@ export default function PropertyClient({
               )
             }
             className="p-0 m-0 cursor-pointer"
+            aria-label={`Voir toutes les photos de ${property.title}`}
           >
             <PicturesDisplay property={property} />
           </button>
