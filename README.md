@@ -75,12 +75,12 @@ next/image pour chargement des images et chargement paresseux des listes
     Ajouter des favoris dans la page accueil
         *icone s'anime lors de la sélection d'un favori
         *logement apparaît dans la page des favoris
-        tests unitaires des favoris réalisés
+        *tests unitaires des favoris réalisés
         *enregistrment dans le stockage local avec Context et LocalStorage
 
 ## Etape 7 : Ajout d un sitemap
 
-## Etape 8 : Accessibilité du site WCAG avec lighthouse (indicaturs tous au vert) et wave
+## Etape 8 : Accessibilité du site WCAG avec lighthouse (indicateurs tous au vert) et wave
 
 ## Etape 9 : Documentation du code avec JSDOc ou Storybook
 
