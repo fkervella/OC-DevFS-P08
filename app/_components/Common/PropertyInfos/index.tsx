@@ -6,13 +6,17 @@ import { AppProperty } from "@/types/appTypes";
 
 export interface PropertyInfosProps {
   property: AppProperty; // données d'une propriété
+  className: string;
 }
 
 export default function PropertyInfos({
   property,
+  className,
 }: PropertyInfosProps): ReactElement {
   return (
-    <div className="bg-white rounded-lg pt-6 pr-4 pb-6 pl-6 flex flex-col gap-2">
+    <div
+      className={`bg-white rounded-lg pt-6 pr-4 pb-6 pl-6 flex flex-col gap-2 ${className}`}
+    >
       <h1 className="text-2xl font-medium text-black mb-2">{property.title}</h1>
       <div className="flex flex-row gap-2 items-center mb-6">
         <Image

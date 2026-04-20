@@ -32,7 +32,7 @@ export default function PropertyClient({
 
   return (
     <>
-      <div className="flex flex-col gap-2 inert={modalState.isOpen}">
+      <div className="flex flex-col gap-2 inert={modalState.isOpen} m-4 lg:mt-4">
         <Button
           text="← Retour aux annonces"
           type="button"
@@ -40,7 +40,7 @@ export default function PropertyClient({
           className="bg-grayLight text-nowrap w-fit text-sm font-medium text-grayDark cursor-pointer"
           disabled={false}
         />
-        <div className="grid grid-cols-[2fr_1fr] gap-2 mb-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-[2fr_1fr] gap-2 lg:mb-8">
           <button
             onClick={() =>
               openModal(
@@ -55,8 +55,14 @@ export default function PropertyClient({
           >
             <PicturesDisplay property={property} />
           </button>
-          <HostInfos property={property} />
-          <PropertyInfos property={property} />
+          <PropertyInfos
+            property={property}
+            className="lg:col-start-1 lg:row-start-2"
+          />
+          <HostInfos
+            property={property}
+            className="lg:col-start-2 lg:row-start-1"
+          />
         </div>
       </div>
       {/* Modale générique */}
