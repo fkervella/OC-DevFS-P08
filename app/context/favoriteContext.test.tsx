@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import { FavoritesProvider, useFavorites } from "./FavoriteContext";
 
@@ -49,13 +49,11 @@ function TestComponent() {
 
 describe("FavoriteContext", () => {
   beforeEach(() => {
-    vi.useFakeTimers();
     localStorage.clear();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
-    vi.clearAllMocks();
+    localStorage.clear();
   });
 
   it("Etat initial", () => {

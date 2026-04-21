@@ -1,4 +1,5 @@
-// hooks/useFocusTrap.js
+"use client";
+
 import { RefObject, useEffect, useRef } from "react";
 
 export interface UseFocusTrapProps {
