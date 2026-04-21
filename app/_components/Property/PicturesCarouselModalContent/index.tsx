@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { ReactElement, useCallback, useEffect, useState } from "react";
 
@@ -92,14 +93,14 @@ export default function PicturesCarouselModalContent({
   return (
     <div className="flex flex-col gap-4 h-full">
       {/* Zone carousel */}
-      
+
       <div className="relative w-full h-[70vh] overflow-hidden shrink-0">
-        {(property.pictures.length > 1) && (
+        {property.pictures.length > 1 && (
           <>
             <button
               onClick={previousSlide}
               disabled={isAnimating}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl cursor-pointer"
               aria-label="Image précédente"
             >
               ‹
@@ -108,7 +109,7 @@ export default function PicturesCarouselModalContent({
             <button
               onClick={nextSlide}
               disabled={isAnimating}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl cursor-pointer"
               aria-label="Image suivante"
             >
               ›
@@ -141,7 +142,11 @@ export default function PicturesCarouselModalContent({
       {/* Miniatures */}
       <div className="flex flex-row gap-2 flex-wrap w-full items-center justify-center">
         {pictures.map((picture: string, index: number) => (
-          <button key={picture} onClick={() => goToIndex(index)}>
+          <button
+            key={picture}
+            onClick={() => goToIndex(index)}
+            className="cursor-pointer"
+          >
             <Image
               src={picture}
               alt={`Image secondaire ${index + 1} de ${property.title}`}
