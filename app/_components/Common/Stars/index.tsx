@@ -20,15 +20,22 @@ export interface StarsProps {
 
 export default function Stars({ number }: StarsProps): ReactElement {
   return (
-    <div className="rounded-lg pt-2 pr-2 pb-2 pl-2 h-fit bg-grayLight flex flex-rom gap-2 items-center">
+    <div
+      role="img"
+      aria-label={`Note : ${number} sur 5`}
+      className="rounded-lg pt-2 pr-2 pb-2 pl-2 h-fit bg-grayLight flex flex-rom gap-2 items-center"
+    >
       <Image
         src="/iconStar.png"
-        alt="favori"
+        alt=""
+        aria-hidden="true"
         width={16}
         height={16}
         className="h-5 w-auto"
       />
-      <div className={`inter font-normal text-sm`}>{number}</div>
+      <div aria-hidden="true" className={`inter font-normal text-sm`}>
+        {number}
+      </div>
     </div>
   );
 }

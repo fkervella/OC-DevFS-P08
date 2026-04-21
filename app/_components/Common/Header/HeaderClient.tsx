@@ -133,6 +133,7 @@ export default function HeaderClient(): ReactElement {
           <Image
             src="/iconFavorite.png"
             alt="Voir mes favoris"
+            aria-hidden="true"
             width={16}
             height={16}
           />
@@ -142,6 +143,7 @@ export default function HeaderClient(): ReactElement {
           <Image
             src="/iconMessage.png"
             alt="Ouvrir la messagerie"
+            aria-hidden="true"
             width={16}
             height={16}
           />

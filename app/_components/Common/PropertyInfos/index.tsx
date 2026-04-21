@@ -21,7 +21,8 @@ export default function PropertyInfos({
       <div className="flex flex-row gap-2 items-center mb-6">
         <Image
           src="/iconLocalisation.png"
-          alt="localisation"
+          alt=""
+          aria-hidden="true"
           width={16}
           height={16}
           className="h-4 w-auto"

@@ -47,15 +47,15 @@ export default function HomePageClient({
           alt="Image de la page d'accueil"
           width={1200}
           height={675}
-          className="w-full h-auto max-h-75 md:max-h-125 rounded-2xl object-cover"
           priority
+          className="w-full h-auto max-h-75 md:max-h-125 rounded-2xl object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
         />
       </div>
 
       {/* Grille des propriétés - responsive */}
       <div className="flex flex-wrap gap-4 justify-center">
-        {properties.map((property) => (
+        {properties.slice(0, 20).map((property) => (
           <PropertyCard key={property.id} propertyData={property} />
         ))}
       </div>
