@@ -6,7 +6,6 @@ import { AppProperty } from "@/types/appTypes";
 export interface PicturesDisplayProps {
   property: AppProperty; // données d'une propriété
 }
-
 export default function PicturesDisplay({
   property,
 }: PicturesDisplayProps): ReactElement {

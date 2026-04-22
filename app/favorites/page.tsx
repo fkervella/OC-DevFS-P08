@@ -1,10 +1,14 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { ReactElement } from "react";
 
-import PropertyCard from "@/app/_components/Property/PropertyCard";
 import { useFavorites } from "@/app/context/FavoriteContext";
 import { AppProperty } from "@/types/appTypes";
+
+const PropertyCard = dynamic(
+  () => import("@/app/_components/Property/PropertyCard"),
+);
 
 export default function FavoritesPage(): ReactElement {
   const { favorites } = useFavorites();

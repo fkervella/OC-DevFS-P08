@@ -22,20 +22,31 @@ const FavoritesContext = createContext<FavoritesContextType | undefined>(
   undefined,
 );
 
-export function FavoritesProvider({ children }: { children: ReactNode }) {
-  // charger les favoris depuis le localStorage
-  const getInitialFavorites = (): AppProperty[] => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("favorites");
-      return saved ? JSON.parse(saved) : [];
+const getInitialFavorites = (): AppProperty[] => {
+  if (typeof window === "undefined") {
+    return []; // Serveur : retourne tableau vide
+  }
+  try {
+    const storedFavorites = localStorage.getItem("favorites");
+    if (storedFavorites) {
+      const parsedFavorites = JSON.parse(storedFavorites);
+      if (Array.isArray(parsedFavorites)) {
+        return parsedFavorites;
+      }
     }
-    return [];
-  };
+  } catch (error) {
+    console.error("Erreur lors du parsing des favoris:", error);
+    localStorage.removeItem("favorites");
+  }
+  return [];
+};
 
+export function FavoritesProvider({ children }: { children: ReactNode }) {
+  // Initialisation directe depuis localStorage (pas de useEffect)
   const [favorites, setFavorites] =
     useState<AppProperty[]>(getInitialFavorites);
 
-  // sauvegarde dans localStorage à chaque changement
+  // Sauvegarde dans localStorage à chaque changement
   useEffect(() => {
     if (favorites.length > 0) {
       localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -46,7 +57,7 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
 
   const addFavorite = (property: AppProperty) => {
     setFavorites((prev) => {
-      //Vérification si le logement est déjà dans les favoris
+      // Vérification si le logement est déjà dans les favoris
       if (prev.some((p) => p.id === property.id)) {
         return prev;
       }
@@ -63,7 +74,9 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
   };
 
   const toggleFavorite = (property: AppProperty) => {
-    if (isFavorite(property.id)) {
+    const isAlreadyFavorite = isFavorite(property.id);
+
+    if (isAlreadyFavorite) {
       removeFavorite(property);
       return false;
     } else {
@@ -87,10 +100,12 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useFavorites() {
+export function useFavorites(): FavoritesContextType {
   const context = useContext(FavoritesContext);
-  if (context === undefined) {
-    throw new Error("useFavorites must be used within a FavoritesProvider");
+
+  if (!context) {
+    throw new Error("useFavorites must be used within FavoritesProvider");
   }
+
   return context;
 }

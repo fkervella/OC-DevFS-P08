@@ -49,10 +49,11 @@ export default function PropertyCard({
           <div className="relative h-94 w-89">
             <Image
               src={propertyData.cover}
-              alt={`image ${propertyData.title}`}
+              alt={`Logement ${propertyData.title}`}
               fill
               className="object-cover rounded-t-lg"
               sizes="(max-width: 355px) 100vw, 33vw"
+              loading="lazy"
             />
           </div>
           <div className="flex flex-col gap-2 pt-2 pr-4 pb-5 pl-4 justify-between h-44">

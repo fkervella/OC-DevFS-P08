@@ -31,11 +31,11 @@ export default function HostInfos({
       <div className="flex flex-row justify-between mb-4 items-center">
         <Image
           src={property.host.picture}
-          alt=""
+          alt={`Avatar de ${property.host.name}`}
           width={82}
           height={82}
           className="w-full h-auto max-h-20 max-w-20  rounded-md object-fit"
-          loading="eager"
+          loading="lazy"
           sizes="(max-width: 82px) 100vw, (max-width: 82px) 80vw, 82px"
         />
         <p className="text-normal font-medium text-black">

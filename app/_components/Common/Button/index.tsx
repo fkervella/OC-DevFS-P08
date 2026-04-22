@@ -12,6 +12,8 @@ export interface ButtonProps {
   className?: string; // style d'affichage
   onClick?: () => void; // action à réaliser à l'appui sur le bouton
   disabled?: boolean; // désactivation du bouton
+  "aria-live"?: "polite" | "assertive" | "off";
+  "aria-busy"?: boolean;
 }
 
 /**
@@ -27,6 +29,8 @@ export default function Button({
   className,
   onClick,
   disabled,
+  "aria-live": ariaLive,
+  "aria-busy": ariaBusy,
 }: ButtonProps): ReactElement {
   return (
     <button
@@ -34,6 +38,8 @@ export default function Button({
       className={`inter font-medium rounded-lg pt-2 pr-10 pb-2 pl-10 w-50 ${className} cursor-pointer`}
       onClick={onClick}
       disabled={disabled}
+      aria-live={ariaLive}
+      aria-busy={ariaBusy}
     >
       {text}
     </button>
