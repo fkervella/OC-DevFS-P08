@@ -45,7 +45,6 @@ export async function apiCore<T extends keyof typeof API_ROUTES>(
     throw new Error(`API error ${response.status}`);
   }
 
-  //TODO A vérifier si géré dans le backend
   // 204 No Content : pas de corps à parser
   if (response.status === 204) {
     return undefined as never;
