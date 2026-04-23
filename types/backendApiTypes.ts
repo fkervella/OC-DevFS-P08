@@ -9,6 +9,7 @@ export interface BackendUser {
   name: string;
   picture: string;
   role: string;
+  email: string;
 }
 
 /**
