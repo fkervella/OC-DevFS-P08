@@ -5,10 +5,10 @@ import { ReactNode, useEffect } from "react";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 
 export interface ModalLayoutProps {
-  isOpen: boolean;
-  onClose: () => void;
-  title: string;
-  children: ReactNode;
+  isOpen: boolean; // modale ouverte
+  onClose: () => void; // action à la fermeture de la modale
+  title: string; // titre de la modale
+  children: ReactNode; // contenu de la modale
 }
 
 export default function ModalLayout({
@@ -17,6 +17,7 @@ export default function ModalLayout({
   title,
   children,
 }: ModalLayoutProps) {
+  // gestion du focus dans la modale
   const modalRef = useFocusTrap({
     isActive: isOpen,
   }) as React.RefObject<HTMLDivElement>;

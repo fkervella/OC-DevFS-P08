@@ -13,20 +13,22 @@ import { BackendProperty } from "./backendApiTypes";
 export function convertBackendToAppProperty(
   backendProperties: BackendProperty[],
 ): AppProperty[];
+
 export function convertBackendToAppProperty(
   backendProperty: BackendProperty,
 ): AppProperty;
+
 export function convertBackendToAppProperty(
   backendData: BackendProperty | BackendProperty[],
 ): AppProperty | AppProperty[] {
-  // Si c'est un tableau, on map chaque élément
+  // Si c'est un tableau, chaque élément est mappé
   if (Array.isArray(backendData)) {
     return backendData.map((property) => ({
       ...property,
       favorite: false,
     }));
   }
-  // Sinon, on traite comme un seul objet
+  // Sinon, il s'agit d'un seul objet
   return {
     ...backendData,
     favorite: false,

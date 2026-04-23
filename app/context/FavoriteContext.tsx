@@ -11,17 +11,19 @@ import {
 import { AppProperty } from "@/types/appTypes";
 
 interface FavoritesContextType {
-  favorites: AppProperty[];
-  addFavorite: (property: AppProperty) => void;
-  removeFavorite: (property: AppProperty) => void;
-  isFavorite: (propertyId: string) => boolean;
-  toggleFavorite: (property: AppProperty) => boolean;
+  favorites: AppProperty[]; // Liste de propriétés favorites
+  addFavorite: (property: AppProperty) => void; // Ajout d'un favori
+  removeFavorite: (property: AppProperty) => void; // Suppression d'un favori
+  isFavorite: (propertyId: string) => boolean; // Etat favori d'une propriété
+  toggleFavorite: (property: AppProperty) => boolean; // Changement d'état d'un favori
 }
 
+// Création du contexte
 const FavoritesContext = createContext<FavoritesContextType | undefined>(
   undefined,
 );
 
+// Récupération des favoris dans le local storage
 const getInitialFavorites = (): AppProperty[] => {
   if (typeof window === "undefined") {
     return []; // Serveur : retourne tableau vide
@@ -42,7 +44,7 @@ const getInitialFavorites = (): AppProperty[] => {
 };
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
-  // Initialisation directe depuis localStorage (pas de useEffect)
+  // Initialisation depuis localStorage
   const [favorites, setFavorites] =
     useState<AppProperty[]>(getInitialFavorites);
 
@@ -55,6 +57,7 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
     }
   }, [favorites]);
 
+  // Ajout d'un favori
   const addFavorite = (property: AppProperty) => {
     setFavorites((prev) => {
       // Vérification si le logement est déjà dans les favoris
@@ -65,14 +68,17 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  // Suppression d'un favori
   const removeFavorite = (property: AppProperty) => {
     setFavorites((prev) => prev.filter((p) => p.id !== property.id));
   };
 
+  // Etat favori d'une propriété
   const isFavorite = (propertyId: string) => {
     return favorites.some((p) => p.id === propertyId);
   };
 
+  // Changement d'état d'un favori
   const toggleFavorite = (property: AppProperty) => {
     const isAlreadyFavorite = isFavorite(property.id);
 

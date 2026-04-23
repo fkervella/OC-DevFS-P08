@@ -16,7 +16,7 @@ import { AppProperty } from "@/types/appTypes";
  */
 
 export interface PropertyCardProps {
-  propertyData: AppProperty;
+  propertyData: AppProperty; // Données d'une propriété
 }
 
 /**
@@ -31,6 +31,7 @@ export default function PropertyCard({
   const { isFavorite, toggleFavorite } = useFavorites();
   const isPropertyFavorite = isFavorite(propertyData.id);
 
+  // Changement de l'état de favori d'une propriété
   const handleFavoriteClick = () => {
     toggleFavorite(propertyData);
   };

@@ -6,8 +6,8 @@ import { ReactElement, useCallback, useEffect, useState } from "react";
 import { AppProperty } from "@/types/appTypes";
 
 export interface PicturesCarouselModalContentProps {
-  property: AppProperty;
-  onSubmitSuccess: () => void;
+  property: AppProperty; // données de la propriété
+  onSubmitSuccess: () => void; // action à réaliser à la fermeture de la modale
 }
 
 export default function PicturesCarouselModalContent({
@@ -29,6 +29,7 @@ export default function PicturesCarouselModalContent({
     (0 + 1) % total,
   ]);
 
+  // Changement de l'image à afficher
   const goToIndex = useCallback(
     (newIndex: number) => {
       if (isAnimating || newIndex === selectedImageIndex) return;
@@ -93,7 +94,6 @@ export default function PicturesCarouselModalContent({
   return (
     <div className="flex flex-col gap-4 h-full">
       {/* Zone carousel */}
-
       <div className="relative w-full h-[70vh] overflow-hidden shrink-0">
         {property.pictures.length > 1 && (
           <>

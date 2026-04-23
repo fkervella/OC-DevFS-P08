@@ -5,6 +5,12 @@ import PicturesDisplaySkeleton from "@/app/_components/Loader/PicturesDisplaySke
 import PropertyInfosSkeleton from "@/app/_components/Loader/PropertyInfosSkeleton";
 import Skeleton from "@/app/_components/Loader/Skeleton";
 
+/**
+ * PropertyLoading Affichage pendant le chargement de la page properties
+ *
+ * @return {ReactElement}
+ */
+
 export default function PropertyLoading(): ReactElement {
   return (
     <div className="flex flex-col gap-2 w-full m-4">

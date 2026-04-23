@@ -6,20 +6,35 @@ import { ReactElement } from "react";
  * @interface ButtonProps
  * @typedef {ButtonProps}
  */
+
 export interface ButtonProps {
   text: string; // texte à afficher
   type: "submit" | "reset" | "button" | undefined; //type de bouton
   className?: string; // style d'affichage
   onClick?: () => void; // action à réaliser à l'appui sur le bouton
   disabled?: boolean; // désactivation du bouton
-  "aria-live"?: "polite" | "assertive" | "off";
-  "aria-busy"?: boolean;
+  "aria-live"?: "polite" | "assertive" | "off"; // type de mise à jour du bouton
+  "aria-busy"?: boolean; // modification en cours du bouton
 }
 
 /**
  * Button bouton d'action
  *
  * @param {ButtonProps} props Props définies par l'interface ButtonProps
+ * @return {ReactElement}
+ */
+
+/**
+ * Button bouton d'action
+ *
+ * @param {ButtonProps} param0
+ * @param {string} param0.text
+ * @param {("submit" | "reset" | "button")} param0.type
+ * @param {string} param0.className
+ * @param {() => void} param0.onClick
+ * @param {boolean} param0.disabled
+ * @param {("polite" | "assertive" | "off")} param0."aria-live" ariaLive
+ * @param {boolean} param0."aria-busy" ariaBusy
  * @return {ReactElement} code HTML du bouton
  */
 

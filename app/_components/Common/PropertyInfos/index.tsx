@@ -6,7 +6,7 @@ import { AppProperty } from "@/types/appTypes";
 
 export interface PropertyInfosProps {
   property: AppProperty; // données d'une propriété
-  className: string;
+  className: string; // sytle de l'élément supérieur
 }
 
 export default function PropertyInfos({
