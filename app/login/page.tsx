@@ -60,7 +60,6 @@ export default function LoginPage(): ReactElement {
         <h1 className="font-inter text-center text-mainRed text-3xl font-bold mt-2 mb-2">
           Heureux de vous revoir
         </h1>
-        <div className="bg-red-500 text-white">TEST</div>
         <p className="font-inter text-center text-sm font-normal max-w-100">
           Connectez-vous pour retrouver vos réservations, vos annonces et tout
           ce qui rend vos séjours uniques.
