@@ -1,31 +1,45 @@
 Kasa, plateforme de réservation en ligne
 
 # Pré-requis
-TODO
+Installer le backend [https://github.com/OpenClassrooms-Student-Center/dev-react-P12](https://github.com/OpenClassrooms-Student-Center/dev-react-P12)
 
 # Installation
-TODO
+
+```bash
+npm install
+npm run build
+```
+
+Créer le fichier .env.local avec les données suivantes :
+NEXT_PUBLIC_API_URL= 'url du backend'
+API_URL= 'url du backend'
+SESSION_SECRET= 'secret pour le token
 
 # Lancement du projet
 
 ```bash
-npm run dev
+npm start
+```
 
 Ouvrir [http://localhost:3000](http://localhost:3000) pour accéder à l'application
 
 # Description du projet
-TODO
 
-
-Laura, la CTO
-
-back-end en express.js
-front-end en Next.js et React
-next/image pour chargement des images et chargement paresseux des listes
-
-3 rôles : Owner / Client / Admin
-
-2 sprints :
+Ce projet est la partie front d'un système de gestion de location d'appartements et de maisons entre particuliers.
+Le front-end en Next.js et React
+Les fonctionnalités de l'application sont :
+* connexion de l'utilisateur
+* enregistrement de l'utilisateur
+* affichage des logements
+* affichage des détails d'une propriété
+* naviguer entre les logements
+* affichage des favoris
+* ajout de favoris par l'utilisateur connecté
+* ajout d'une nouvelle propriété
+* ajout de photos à une propriété existante
+* sélection des équipements d'une propriété
+* contact de l'hôte
+* envoi de message à l'hôte
 
 # Sprint 1 : obligatoire
 
@@ -82,7 +96,7 @@ next/image pour chargement des images et chargement paresseux des listes
 
 ## Etape 8 : *Accessibilité du site WCAG avec lighthouse (indicateurs tous au vert) et wave
 
-## Etape 9 : Documentation du code avec JSDOc ou Storybook
+## Etape 9 : *Documentation du code avec JSDoc (retenu) ou Storybook
 
 ## Etape 10 : Déploiement en ligne du projet
 
