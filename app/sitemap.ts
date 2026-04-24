@@ -1,51 +1,35 @@
 import type { MetadataRoute } from "next";
 
+const BASE_URL: string = process.env.BASE_URL!;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://localhost:3001",
+      url: `${BASE_URL}`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: "https://localhost:3001/about",
+      url: `${BASE_URL}/about`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://acme.com/login",
+      url: `${BASE_URL}/login`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,
     },
     {
-      url: "https://acme.com/signin",
+      url: `${BASE_URL}/sigin`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,
     },
     {
-      url: "https://acme.com/properties",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://acme.com/favorites",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://acme.com/chat",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://acme.com/addProperty",
+      url: `${BASE_URL}/properties`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,

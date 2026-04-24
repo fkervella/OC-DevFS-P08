@@ -22,7 +22,7 @@ export interface PropertyCardProps {
 /**
  * PropertyCard Composant pour afficher une propriété sous forme de carte
  *
- * @return {ReactElement} code HTML de la cart de propriété
+ * @return {ReactElement} code HTML de la carte de propriété
  */
 
 export default function PropertyCard({
@@ -36,8 +36,55 @@ export default function PropertyCard({
     toggleFavorite(propertyData);
   };
 
+  /**
+   * Données structurées Schema.org de type LodgingBusiness
+   * Permet aux moteurs de recherche d'interpréter le logement,
+   * sa localisation et son prix.
+   */
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    name: propertyData.title,
+    description: propertyData.description,
+    image: propertyData.cover,
+    url: `/properties/${propertyData.id}?slug=${propertyData.slug}`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: propertyData.location,
+      addressCountry: "FR",
+    },
+    aggregateRating:
+      propertyData.ratings_count > 0
+        ? {
+            "@type": "AggregateRating",
+            ratingValue: propertyData.rating_avg,
+            reviewCount: propertyData.ratings_count,
+            bestRating: 5,
+            worstRating: 1,
+          }
+        : undefined,
+    offers: {
+      "@type": "Offer",
+      price: propertyData.price_per_night,
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: propertyData.price_per_night,
+        priceCurrency: "EUR",
+        unitText: "nuit",
+      },
+    },
+  };
+
   return (
     <div className="relative w-89">
+      {/* Données structurées JSON-LD pour le SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="absolute top-4 right-4 z-10">
         <FavoriteButton
           isFavorite={isPropertyFavorite}
@@ -46,7 +93,7 @@ export default function PropertyCard({
       </div>
 
       <Link href={`/properties/${propertyData.id}?slug=${propertyData.slug}`}>
-        <div className="flex flex-col gap-2 bg-white ">
+        <article className="flex flex-col gap-2 bg-white">
           <div className="relative h-94 w-89">
             <Image
               src={propertyData.cover}
@@ -67,14 +114,14 @@ export default function PropertyCard({
               </p>
             </div>
             <div className="text-sm font-medium text-black">
-              {propertyData.price_per_night}€
+              <span>{propertyData.price_per_night}€</span>
               <span className="text-sm font-normal text-grayDark">
                 {" "}
                 par nuit
               </span>
             </div>
           </div>
-        </div>
+        </article>
       </Link>
     </div>
   );

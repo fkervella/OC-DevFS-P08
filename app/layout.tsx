@@ -16,8 +16,33 @@ import { FavoritesProvider } from "./context/FavoriteContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kasa",
-  description: "Location d appartements et de maisons entre particuliers",
+  title: {
+    default: "Kasa - Location entre particuliers",
+
+    template: "%s | Kasa", // permet aux pages filles de surcharger le titre
+  },
+  description: "Location d'appartements et de maisons entre particuliers",
+  keywords: ["location", "appartement", "maison", "particuliers", "kasa"],
+  authors: [{ name: "Kasa" }],
+  creator: "Kasa",
+  metadataBase: new URL("https://oc-dev-fs-p08.vercel.app/"),
+  openGraph: {
+    title: "Kasa — Location entre particuliers",
+    description: "Location d'appartements et de maisons entre particuliers",
+    url: "https://oc-dev-fs-p08.vercel.app/",
+    siteName: "Kasa",
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kasa — Location entre particuliers",
+    description: "Location d'appartements et de maisons entre particuliers",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -29,9 +54,6 @@ export default function RootLayout({
     <html lang="fr" className={`${inter.className} antialiased h-full`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>
-          Kasa Location d appartements et de maisons entre particuliers
-        </title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
