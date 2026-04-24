@@ -57,8 +57,7 @@
     "**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --write",
-      "vitest related --run",
-      "npm run docs"
+      "vitest related --run"
     ]
   }
 }

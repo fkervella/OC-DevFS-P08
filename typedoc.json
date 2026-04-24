@@ -3,6 +3,9 @@
   "entryPoints": [
     "actions", 
     "app",
+    "app/properties/\\[id\\]/loading.tsx",
+    "app/properties/\\[id\\]/page.tsx",
+    "app/properties/\\[id\\]/pageClient.tsx",
     "hooks",
     "services",
     "types",

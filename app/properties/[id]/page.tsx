@@ -19,10 +19,10 @@ export interface PropertyPageProps {
 }
 
 /**
- * PropertyPage Afficahge de la page Property/[id]
+ * PropertyPage Affichage de la page Property/[id]
  *
- * @param {PropertyPageProps} param0
- * @return {ReactElement} Code HTML de la page property/[id]
+ * @param {PropertyPageProps} param0 props de PropertyPage
+ * @return {unknown}
  */
 
 export default async function PropertyPage({ params }: PropertyPageProps) {
