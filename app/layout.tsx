@@ -46,6 +46,7 @@ export default function RootLayout({
             className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-mainRed focus:p-2 focus:rounded"
           >
             Aller au contenu principal
+            <div className="bg-red-500 text-white">TEST</div>
           </a>
           <Header />
           <main
