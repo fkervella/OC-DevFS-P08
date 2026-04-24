@@ -24,7 +24,7 @@ export default function FavoritesPage(): ReactElement {
           route
         </p>
         <div className="flex flex-col lg:flex-row flex-wrap gap-2 text-sm mb-8">
-          {favorites
+          {favorites.length > 0
             ? favorites.map((property: AppProperty) => (
                 <PropertyCard key={property.slug} propertyData={property} />
               ))
