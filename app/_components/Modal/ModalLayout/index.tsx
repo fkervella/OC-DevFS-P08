@@ -4,12 +4,25 @@ import { ReactNode, useEffect } from "react";
 
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 
+/**
+ * ModalLayoutProps props de la fonction ModalLayout
+ *
+ * @interface ModalLayoutProps
+ * @typedef {ModalLayoutProps}
+ */
 export interface ModalLayoutProps {
   isOpen: boolean; // modale ouverte
   onClose: () => void; // action à la fermeture de la modale
   title: string; // titre de la modale
   children: ReactNode; // contenu de la modale
 }
+
+/**
+ * ModalLayout layout d'affichage de la modale (titre, croix pour fermer la modale et contenu)
+ *
+ * @param {ModalLayoutProps} param props de la modale
+ * @return {*} code HTML de structure de la modale
+ */
 
 export default function ModalLayout({
   isOpen,

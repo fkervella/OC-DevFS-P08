@@ -6,6 +6,7 @@ import { ReactElement } from "react";
 import { useFavorites } from "@/app/context/FavoriteContext";
 import { AppProperty } from "@/types/appTypes";
 
+// Chargement des données lorsqu'elles ont besoin d'être affichées
 const PropertyCard = dynamic(
   () => import("@/app/_components/Property/PropertyCard"),
 );

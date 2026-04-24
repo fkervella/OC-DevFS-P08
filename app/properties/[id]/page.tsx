@@ -14,7 +14,7 @@ import PropertyClient from "./pageClient";
 
 export interface PropertyPageProps {
   params: {
-    id: string;
+    id: string; // identifiant de la propriété
   };
 }
 

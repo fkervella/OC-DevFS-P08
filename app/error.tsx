@@ -15,8 +15,8 @@ import Button from "./_components/Common/Button";
  */
 
 export interface ErrorProps {
-  error: Error & { digest?: string };
-  reset: () => void;
+  error: Error & { digest?: string }; // données de l'erreur
+  reset: () => void; // action pour re-tenter la dernière action réalisée
 }
 
 /**
@@ -37,7 +37,7 @@ export default function ErrorPage({ error, reset }: ErrorProps): ReactElement {
     if (error.cause) console.error("[ErrorBoundary] cause:", error.cause);
   }, [error]);
 
-  // Extraction de la cause profonde pour affichage utilisateur
+  // Extraction de la cause racine pour affichage utilisateur
   const rootCause =
     error.cause instanceof Error
       ? error.cause.message

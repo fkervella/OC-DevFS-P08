@@ -43,6 +43,7 @@ const getInitialFavorites = (): AppProperty[] => {
   return [];
 };
 
+// Provider du contexte
 export function FavoritesProvider({ children }: { children: ReactNode }) {
   // Initialisation depuis localStorage
   const [favorites, setFavorites] =
@@ -110,7 +111,9 @@ export function useFavorites(): FavoritesContextType {
   const context = useContext(FavoritesContext);
 
   if (!context) {
-    throw new Error("useFavorites must be used within FavoritesProvider");
+    throw new Error(
+      "useFavorites doit être utilisé dans le contexte FavoritesProvider",
+    );
   }
 
   return context;

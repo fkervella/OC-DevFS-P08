@@ -5,11 +5,11 @@
  * @typedef {BackendUser}
  */
 export interface BackendUser {
-  id: number;
-  name: string;
-  picture: string;
-  role: string;
-  email: string;
+  id: number; // identifiant de l'utilisateur
+  name: string; // Nomo de l'utilisateur
+  picture: string; // Image de profil de l'utilisateur
+  role: string; // Rôle de l'utilisateur dans l'application
+  email: string; // email / identifiant de connexion de l'utilisateur
 }
 
 /**
@@ -19,9 +19,9 @@ export interface BackendUser {
  * @typedef {BackendUpdateUser}
  */
 export interface BackendUpdateUser {
-  name: string;
-  picture: string;
-  role: string;
+  name: string; // nom de l'utilisateur
+  picture: string; // image de profil de l'utilisateur
+  role: string; // rôle de l'utilisateur dans l'application
 }
 
 /**
@@ -31,19 +31,19 @@ export interface BackendUpdateUser {
  * @typedef {BackendProperty}
  */
 export interface BackendProperty {
-  id: string;
-  slug: string;
-  title: string;
-  description: string;
-  cover: string;
-  location: string;
-  price_per_night: number;
-  rating_avg: number;
-  ratings_count: number;
-  host: BackendHost;
-  equipments: string[];
-  pictures: string[];
-  tags: string[];
+  id: string; // identifiant de la propriété
+  slug: string; // slug de la propriété
+  title: string; // Titre de la propriété
+  description: string; // Description de la propriété
+  cover: string; // Image principale de la propriété
+  location: string; // localisation de lap ropritété
+  price_per_night: number; // prix par nuit de le propriété
+  rating_avg: number; // notation moyenne de la propriété
+  ratings_count: number; // nombre de notations de la propriété
+  host: BackendHost; // données de l'hôite de la propriété
+  equipments: string[]; // équipements de la propriété
+  pictures: string[]; // images de la propriété
+  tags: string[]; // catégories de la propriété
 }
 
 /**
@@ -53,12 +53,12 @@ export interface BackendProperty {
  * @typedef {BackendUpdateProperty}
  */
 export interface BackendUpdateProperty {
-  title: string;
-  description: string;
-  cover: string;
-  location: string;
-  price_per_night: number;
-  host_id: number;
+  title: string; // Titre de la propriété
+  description: string; // Description de la propriété
+  cover: string; // Image principale de la propriété
+  location: string; // localisation de la propriété
+  price_per_night: number; // prix par nuit de la propriété
+  host_id: number; // Identifiant de l'hôte de la propriété
 }
 
 /**
@@ -68,8 +68,8 @@ export interface BackendUpdateProperty {
  * @typedef {BackendLoginRequest}
  */
 export interface BackendLoginRequest {
-  email: string;
-  password: string;
+  email: string; // email / identifiant de connexion de l'utilisateur
+  password: string; // mot de passe de connexion de l'utilisateur
 }
 
 /**
@@ -79,8 +79,8 @@ export interface BackendLoginRequest {
  * @typedef {BackendLoginResponse}
  */
 export interface BackendLoginResponse {
-  token: string;
-  user: BackendUser;
+  token: string; // token de connexion de l'utilisateur
+  user: BackendUser; // données de connexion de l'utilisateur
 }
 
 /**
@@ -90,11 +90,11 @@ export interface BackendLoginResponse {
  * @typedef {BackendRating}
  */
 export interface BackendRating {
-  id: number;
-  score: number;
-  comment: string;
-  created_at: Date;
-  user: BackendUser;
+  id: number; // identifiant de la notation
+  score: number; // valeur de la notation
+  comment: string; // Commentaire de la notaion
+  created_at: Date; // Date de création de la notation
+  user: BackendUser; // données de l'utilisateur
 }
 
 /**
@@ -104,9 +104,9 @@ export interface BackendRating {
  * @typedef {BackendPropertyRating}
  */
 export interface BackendPropertyRating {
-  rating_avg: number;
-  ratings_count: number;
-  ratings: BackendRating[];
+  rating_avg: number; // notation moyenne de la propriété
+  ratings_count: number; // nombre de notations de la propriété
+  ratings: BackendRating[]; // notations de la propriété
 }
 
 /**
@@ -116,16 +116,16 @@ export interface BackendPropertyRating {
  * @typedef {BackendFavorite}
  */
 export interface BackendFavorite {
-  id: string;
-  slug: string;
-  title: string;
-  description: string;
-  cover: string;
-  location: string;
-  price_per_night: number;
-  rating_avg: number;
-  ratings_count: number;
-  host: BackendHost;
+  id: string; // Identifiant de la propriété favorite
+  slug: string; // slug de la propriété favorite
+  title: string; // Titre de la propriété favorite
+  description: string; // Description de la propriété favorite
+  cover: string; // Image principale de la propriété favorite
+  location: string; // localisation de la propriété favorite
+  price_per_night: number; // Prix par nuit de la propriété favorite
+  rating_avg: number; // notation moyenne de la propriété favorite
+  ratings_count: number; // nombre de notations de la propriété favorite
+  host: BackendHost; // données de l'hôte de la propriété favorite
 }
 
 /**
@@ -135,9 +135,9 @@ export interface BackendFavorite {
  * @typedef {BackendHost}
  */
 export interface BackendHost {
-  id: number;
-  name: string;
-  picture: string;
+  id: number; // identifiant de l'hôte
+  name: string; // nom de l'hôte
+  picture: string; // image de profil de l'hôte
 }
 
 /**
@@ -147,13 +147,13 @@ export interface BackendHost {
  * @typedef {BackendFiles}
  */
 export interface BackendFiles {
-  url: string;
-  filename: string;
-  size: number;
-  mimetype: string;
-  purpose: string;
-  property_id: string;
-  instructions: string;
+  url: string; // url du fichier
+  filename: string; // nom du fichier
+  size: number; // taille du fichier
+  mimetype: string; // type mime du ficher
+  purpose: string; // objet du fichier de la propriété
+  property_id: string; // identifiant de la propriété associée au fichier
+  instructions: string; // instructions pour le fichier
 }
 
 /**
@@ -163,9 +163,9 @@ export interface BackendFiles {
  * @typedef {BackendRequestResetResponse}
  */
 export interface BackendRequestResetResponse {
-  ok: boolean;
-  message: string;
-  token: string;
+  ok: boolean; // état de la réponse
+  message: string; // message de la réponse
+  token: string; // token de connexion
 }
 
 /**
@@ -175,7 +175,7 @@ export interface BackendRequestResetResponse {
  * @typedef {BackendResetPasswordResponse}
  */
 export interface BackendResetPasswordResponse {
-  ok: boolean;
+  ok: boolean; // état de la réponse
 }
 
 /**

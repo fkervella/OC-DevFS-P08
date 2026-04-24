@@ -15,7 +15,7 @@ import { AppProperty } from "@/types/appTypes";
  */
 
 export interface HomepageClientProps {
-  properties: AppProperty[];
+  properties: AppProperty[]; // données des propriétés à afficher
 }
 
 /**

@@ -5,83 +5,103 @@ import { ReactElement, useCallback, useEffect, useState } from "react";
 
 import { AppProperty } from "@/types/appTypes";
 
+/**
+ * PicturesCarouselModalContentProps pros du carousel
+ *
+ * @interface PicturesCarouselModalContentProps
+ * @typedef {PicturesCarouselModalContentProps}
+ */
 export interface PicturesCarouselModalContentProps {
   property: AppProperty; // données de la propriété
   onSubmitSuccess: () => void; // action à réaliser à la fermeture de la modale
 }
 
+/**
+ * PicturesCarouselModalContent carousel à afficher
+ *
+ * @return {ReactElement} Code HTML du carousel
+ */
+
 export default function PicturesCarouselModalContent({
   property,
 }: PicturesCarouselModalContentProps): ReactElement {
+  // Données des propriétés à afficher
   const pictures = property.pictures;
   const total = pictures.length;
 
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [offset, setOffset] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [transition, setTransition] = useState("");
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0); // Index de l'image affichée
+  const [offset, setOffset] = useState(0); // offset de translation pour l'animation (en %)
+  const [isAnimating, setIsAnimating] = useState(false); // état de l'animation pour empĉher les changements pendant une animation
+  const [transition, setTransition] = useState(""); // style CSS utilisé pendant l'animation
 
   // Slots affichés dans la bande : [gauche, centre, droite]
   // Par défaut : [prev, current, next]
   const [slots, setSlots] = useState([
-    (0 - 1 + total) % total,
-    0,
-    (0 + 1) % total,
+    (0 - 1 + total) % total, // slot gauche (image précédente)
+    0, // slot central (image affichée)
+    (0 + 1) % total, // slot droite (image suivante)
   ]);
 
-  // Changement de l'image à afficher
+  // Changement de l'image à afficher avec identification de la direction(gauche ou droite)
   const goToIndex = useCallback(
     (newIndex: number) => {
+      // Empêche les changements pendant une animation en cours ou si l'image n'a pas changé
       if (isAnimating || newIndex === selectedImageIndex) return;
 
-      // Détermine la direction visuelle
-      // On compare les positions dans le tableau de façon circulaire
-      const distForward = (newIndex - selectedImageIndex + total) % total;
-      const distBackward = (selectedImageIndex - newIndex + total) % total;
-      const direction = distForward <= distBackward ? "right" : "left";
+      // Détermine la direction visuelle en comparaison des positions dans le tableau des images
+      const distForward = (newIndex - selectedImageIndex + total) % total; // distance, en allant vers la droite, entre l'élément actuel et l'élément demandé dans le tableau des images
+      const distBackward = (selectedImageIndex - newIndex + total) % total; // distance, en allant vers la gauche, entre l'élément actuel et l'élément demandé dans le tableau des images
+      const direction = distForward <= distBackward ? "right" : "left"; // Conservation de la distance la plus courte, avec défilement vers la droite si égalité
 
-      // Construction des slots : [image-qui-sort-du-côté-opposé, actuelle, cible]
+      // Construction des slots suivant la direction de défilement définie :
+      // [image-qui-sort-du-côté-opposé, actuelle, cible]
       // ou [cible, actuelle, image-qui-sort-du-côté-opposé]
       if (direction === "right") {
-        // La bande est : [ quelconque | actuelle | cible ]
-        // On translate vers la gauche (-100%) pour amener la cible
+        // L'ordre est : [image-qui-sort-du-côté-opposé, actuelle, cible]
         setSlots([selectedImageIndex, selectedImageIndex, newIndex]);
       } else {
-        // La bande est : [ cible | actuelle | quelconque ]
-        // On translate vers la droite (+100%) pour amener la cible
+        // L'ordre est : [cible, actuelle, image-qui-sort-du-côté-opposé]
         setSlots([newIndex, selectedImageIndex, selectedImageIndex]);
       }
 
+      // offset pour de l'image pour l'animation
+      // translation vers la gauche : -100%
+      // translation vers la droite : +100%
       const targetOffset = direction === "right" ? -100 : 100;
 
+      // Démarrage de l'animation
       setIsAnimating(true);
       setTransition("transform 0.35s ease-in-out");
       setOffset(targetOffset);
 
+      // Réinitialisation à l'issue de l'écoulement du temps de l'animation
       setTimeout(() => {
-        setTransition("");
-        setOffset(0);
-        setSelectedImageIndex(newIndex);
-        // Remet les slots normaux une fois la transition terminée
+        setTransition(""); // retrait de l'animation
+        setOffset(0); // reset de l'offset
+        setSelectedImageIndex(newIndex); // mise à jour de l'image sélectionnée
+        // Remet les slots à leur état initial une fois la transition terminée
         setSlots([
           (newIndex - 1 + total) % total,
           newIndex,
           (newIndex + 1) % total,
         ]);
-        setIsAnimating(false);
+        setIsAnimating(false); // Réinitialisation pour le permettre une nouvelle animation
       }, 350);
     },
     [isAnimating, selectedImageIndex, total],
   );
 
+  // Affichage de l'image suivante
   const nextSlide = useCallback(() => {
     goToIndex((selectedImageIndex + 1) % total);
   }, [selectedImageIndex, total, goToIndex]);
 
+  // Affichage de l'image précédente
   const previousSlide = useCallback(() => {
     goToIndex((selectedImageIndex - 1 + total) % total);
   }, [selectedImageIndex, total, goToIndex]);
 
+  // Navigation au clavier
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") nextSlide();

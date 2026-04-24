@@ -3,7 +3,7 @@ import { AppProperty } from "./appTypes";
 import { BackendProperty } from "./backendApiTypes";
 
 /**
- * Convertit un tableau de BackendProperty en tableau de AppProperty.
+ * convertBackendToAppProperty Convertit un tableau de BackendProperty en tableau de AppProperty.
  * Chaque élément du tableau est converti avec des valeurs par défaut pour les champs manquants.
  *
  * @param backendProperties - Tableau des données du backend.
@@ -14,9 +14,25 @@ export function convertBackendToAppProperty(
   backendProperties: BackendProperty[],
 ): AppProperty[];
 
+/**
+ * convertBackendToAppProperty Convertit un BackendProperty en AppProperty.
+ * Des valeurs par défaut sont affectées pour les champs manquants.
+ *
+ * @param {BackendProperty} backendProperty
+ * @return {AppProperty}
+ */
+
 export function convertBackendToAppProperty(
   backendProperty: BackendProperty,
 ): AppProperty;
+
+/**
+ * convertBackendToAppProperty Convertit un tableau de BackendProperty en tableau de AppProperty ou un BackendProperty en AppProperty
+ * Des valeurs par défaut sont affectées pour les champs manquants.
+ *
+ * @param {(BackendProperty | BackendProperty[])} backendData
+ * @return {(AppProperty | AppProperty[])}
+ */
 
 export function convertBackendToAppProperty(
   backendData: BackendProperty | BackendProperty[],
