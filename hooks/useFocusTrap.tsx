@@ -2,10 +2,18 @@
 
 import { RefObject, useEffect, useRef } from "react";
 
+/**
+ * UseFocusTrapProps interface pour le focus trap
+ *
+ * @interface UseFocusTrapProps
+ * @typedef {UseFocusTrapProps}
+ */
+
 export interface UseFocusTrapProps {
-  isActive: boolean;
+  isActive: boolean; // état du focus trap : true: verrouillé dans le conteneur / false: géré par l'élément parent
 }
 
+// Défintion des éléments focusables
 const FOCUSABLE_SELECTORS = [
   "a[href]",
   "button:not([disabled])",
@@ -15,14 +23,23 @@ const FOCUSABLE_SELECTORS = [
   '[tabindex]:not([tabindex="-1"])',
 ].join(", ");
 
+/**
+ * useFocusTrap hook de gestion du focus
+ *
+ * @param {UseFocusTrapProps} param0
+ * @return {RefObject<HTMLElement | null>} Référence react au conteneur
+ */
 export function useFocusTrap({
   isActive,
 }: UseFocusTrapProps): RefObject<HTMLElement | null> {
+  // Réference vers d'élément du DOM où le focus trap est appliqué
   const containerRef = useRef<HTMLElement>(null);
+
   // Mémorise l'élément qui avait le focus avant l'ouverture
   const previousFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    // si useFocusTrap inactif, rien n'est fait
     if (!isActive) return;
 
     // Sauvegarde l'élément actuellement focalisé
@@ -43,6 +60,7 @@ export function useFocusTrap({
       focusableElements[0].focus();
     }
 
+    // Changement du focus sur action utilisateur
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key !== "Tab") return;
 

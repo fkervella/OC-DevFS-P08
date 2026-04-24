@@ -4,7 +4,7 @@ import { ReactElement } from "react";
 import Skeleton from "@/app/_components/Loader/Skeleton";
 
 export interface HostInfosSkeletonProps {
-  className: string;
+  className: string; // style de l'élément supérieur
 }
 
 export default function HostInfosSkeleton({

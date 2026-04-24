@@ -9,8 +9,8 @@ import { ReactElement, useState } from "react";
  * @typedef {FavoriteButtonProps}
  */
 export interface FavoriteButtonProps {
-  isFavorite?: boolean;
-  onToggle?: (newState: boolean) => void;
+  isFavorite?: boolean; // Etat de favori
+  onToggle?: (newState: boolean) => void; // action pour faire changer d'état au bouton de favori
 }
 
 /**
@@ -26,16 +26,20 @@ export default function FavoriteButton({
   isFavorite = false,
   onToggle,
 }: FavoriteButtonProps): ReactElement {
+  // Sélection de l'affichage du bouton en fonction de l'état de favori
   const style = isFavorite
     ? "bg-mainRed hover:bg-grayLight"
     : "bg-grayLight hover:bg-mainRed";
+
   const [favorite, setFavorite] = useState(isFavorite);
 
+  // Réaction à l'appui sur le bouton de sélection de favori
   function handleClick() {
     const next = !favorite;
     setFavorite(next);
     onToggle?.(next);
   }
+
   return (
     <button
       type="button"

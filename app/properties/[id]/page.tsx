@@ -5,11 +5,26 @@ import { convertBackendToAppProperty } from "@/types/typesFunctions";
 
 import PropertyClient from "./pageClient";
 
+/**
+ * PropertyPageProps données pour l'affichage de la page property/[id]
+ *
+ * @interface PropertyPageProps
+ * @typedef {PropertyPageProps}
+ */
+
 export interface PropertyPageProps {
   params: {
-    id: string;
+    id: string; // identifiant de la propriété
   };
 }
+
+/**
+ * PropertyPage Afficahge de la page Property/[id]
+ *
+ * @async
+ * @param {PropertyPageProps} param0
+ * @return {ReactElement} Code HTML de la page property/[id]
+ */
 
 export default async function PropertyPage({ params }: PropertyPageProps) {
   // Récupération des informations de la propriété

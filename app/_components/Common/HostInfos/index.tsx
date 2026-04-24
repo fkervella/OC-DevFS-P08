@@ -8,7 +8,7 @@ import { AppProperty } from "@/types/appTypes";
 
 export interface HostInfosProps {
   property: AppProperty; // données d'une propriété
-  className: string;
+  className: string; // style de l'élément de tête
 }
 
 export default function HostInfos({

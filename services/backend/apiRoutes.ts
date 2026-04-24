@@ -1,26 +1,28 @@
+// routes du backend
+
 export const API_ROUTES = {
-  //Auth
+  // Auth
   login: "/auth/login",
   register: "/auth/register",
   requestPasswordRequestToken: "/auth/request-reset",
   resetPassword: "/auth/reset-password",
 
-  //Properties
+  // Properties
   properties: "/api/properties",
   property: "/api/properties/:id",
 
-  //Users
+  // Users
   users: "/api/users",
   user: "/api/users/:id",
 
-  //Ratings
+  // Ratings
   propertyRatings: "/api/properties/:id/ratings",
 
   //Favorites
   propertyFavorites: "/api/properties/:id/favorite",
   userFavorites: "/api/users/:id/favorite",
 
-  //Uploads
+  // Uploads
   image: "/api/uploads/image",
   images: "/api/uploads/images",
 } as const;

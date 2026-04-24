@@ -20,8 +20,7 @@ export async function authenticate(
 
     //Retourne un objet AppUser
     return {
-      //TODO email: loginReturn.user.email,
-      email: "",
+      email: loginReturn.user.email,
       name: loginReturn.user.name,
       token: loginReturn.token,
       picture: loginReturn.user.picture,

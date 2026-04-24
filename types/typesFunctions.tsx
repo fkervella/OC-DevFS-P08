@@ -3,7 +3,7 @@ import { AppProperty } from "./appTypes";
 import { BackendProperty } from "./backendApiTypes";
 
 /**
- * Convertit un tableau de BackendProperty en tableau de AppProperty.
+ * convertBackendToAppProperty Convertit un tableau de BackendProperty en tableau de AppProperty.
  * Chaque élément du tableau est converti avec des valeurs par défaut pour les champs manquants.
  *
  * @param backendProperties - Tableau des données du backend.
@@ -13,20 +13,38 @@ import { BackendProperty } from "./backendApiTypes";
 export function convertBackendToAppProperty(
   backendProperties: BackendProperty[],
 ): AppProperty[];
+
+/**
+ * convertBackendToAppProperty Convertit un BackendProperty en AppProperty.
+ * Des valeurs par défaut sont affectées pour les champs manquants.
+ *
+ * @param {BackendProperty} backendProperty
+ * @return {AppProperty}
+ */
+
 export function convertBackendToAppProperty(
   backendProperty: BackendProperty,
 ): AppProperty;
+
+/**
+ * convertBackendToAppProperty Convertit un tableau de BackendProperty en tableau de AppProperty ou un BackendProperty en AppProperty
+ * Des valeurs par défaut sont affectées pour les champs manquants.
+ *
+ * @param {(BackendProperty | BackendProperty[])} backendData
+ * @return {(AppProperty | AppProperty[])}
+ */
+
 export function convertBackendToAppProperty(
   backendData: BackendProperty | BackendProperty[],
 ): AppProperty | AppProperty[] {
-  // Si c'est un tableau, on map chaque élément
+  // Si c'est un tableau, chaque élément est mappé
   if (Array.isArray(backendData)) {
     return backendData.map((property) => ({
       ...property,
       favorite: false,
     }));
   }
-  // Sinon, on traite comme un seul objet
+  // Sinon, il s'agit d'un seul objet
   return {
     ...backendData,
     favorite: false,

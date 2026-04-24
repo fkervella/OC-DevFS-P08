@@ -11,19 +11,20 @@ import PropertyInfos from "@/app/_components/Common/PropertyInfos";
 import useModal from "@/hooks/useModal";
 import { AppProperty } from "@/types/appTypes";
 
-// Lazy loading des composants lourds
+// Chargement des données lorsqu'elles ont besoin d'être affichées
 const ModalLayout = dynamic(
   () => import("@/app/_components/Modal/ModalLayout"),
   { ssr: false },
 );
 
+// Chargement des données lorsqu'elles ont besoin d'être affichées
 const PicturesCarouselModalContent = dynamic(
   () => import("@/app/_components/Property/PicturesCarouselModalContent"),
   { ssr: false },
 );
 
 export interface PropertyClientProps {
-  property: AppProperty;
+  property: AppProperty; // données de la propriété
 }
 
 export default function PropertyClient({

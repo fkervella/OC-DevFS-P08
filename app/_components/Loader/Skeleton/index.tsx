@@ -8,9 +8,9 @@ import { ReactElement } from "react";
  * @typedef {SkeletonProps}
  */
 export interface SkeletonProps {
-  className?: string;
-  width?: string | number;
-  height?: string | number;
+  className?: string; // style de l'élément supérieur
+  width?: string | number; // largeur de l'image
+  height?: string | number; // hauteur de l'image
 }
 
 /**
