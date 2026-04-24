@@ -7,7 +7,6 @@ import { ApiOperation } from "./apiRoutes";
  * apiServer appelle apiCore côté serveur
  * récupère le token d'authentification et indique l'url de base du backend
  *
- * @async
  * @template {ApiOperation} T tyoe d'opération à exécuter
  * @param {T} operation identifiant de l'opération à effectuer
  * @param {ApiOptions} [options={}] données complémentaires de la requête

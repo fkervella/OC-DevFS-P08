@@ -28,13 +28,6 @@ export interface ButtonProps {
  * Button bouton d'action
  *
  * @param {ButtonProps} param0
- * @param {string} param0.text
- * @param {("submit" | "reset" | "button")} param0.type
- * @param {string} param0.className
- * @param {() => void} param0.onClick
- * @param {boolean} param0.disabled
- * @param {("polite" | "assertive" | "off")} param0."aria-live" ariaLive
- * @param {boolean} param0."aria-busy" ariaBusy
  * @return {ReactElement} code HTML du bouton
  */
 

@@ -6,7 +6,7 @@ import { ReactNode, useCallback, useState } from "react";
  * @return {{ modalState: any; openModal: (title: any, content: any) => void; closeModal: () => void; }}
  */
 
-interface ModalState<T = ReactNode> {
+export interface ModalState<T = ReactNode> {
   isOpen: boolean;
   title: string;
   content: T | null;

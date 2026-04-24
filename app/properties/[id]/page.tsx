@@ -21,7 +21,6 @@ export interface PropertyPageProps {
 /**
  * PropertyPage Afficahge de la page Property/[id]
  *
- * @async
  * @param {PropertyPageProps} param0
  * @return {ReactElement} Code HTML de la page property/[id]
  */

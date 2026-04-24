@@ -10,7 +10,13 @@ import {
 
 import { AppProperty } from "@/types/appTypes";
 
-interface FavoritesContextType {
+/**
+ * FavoritesContextType interface des données et fonctions de contexte
+ *
+ * @interface FavoritesContextType
+ * @typedef {FavoritesContextType}
+ */
+export interface FavoritesContextType {
   favorites: AppProperty[]; // Liste de propriétés favorites
   addFavorite: (property: AppProperty) => void; // Ajout d'un favori
   removeFavorite: (property: AppProperty) => void; // Suppression d'un favori
