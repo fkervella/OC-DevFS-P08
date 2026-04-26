@@ -32,7 +32,7 @@ export default function LoginPage(): ReactElement {
     }));
   };
 
-  const handleSubmit = async (e: SubmitEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Enregistrement des données dans un nouvel objet qui sera utilisé pour le backend
     const form = new FormData(e.currentTarget as HTMLFormElement);
@@ -56,7 +56,7 @@ export default function LoginPage(): ReactElement {
 
   return (
     <div className="flex-1 flex justify-center items-center">
-      <div className="flex-1 flex flex-col gap-4 items-center justify-center bg-white max-w-185 pt-10 pr-10 pb-10 pl-10">
+      <div className="flex-1 flex flex-col gap-4 items-center justify-center bg-white max-w-185 pt-10 pr-10 pb-10 pl-10 rounded-lg">
         <h1 className="font-inter text-center text-mainRed text-3xl font-bold mt-2 mb-2">
           Heureux de vous revoir
         </h1>
@@ -65,9 +65,7 @@ export default function LoginPage(): ReactElement {
           ce qui rend vos séjours uniques.
         </p>
         <form
-          onSubmit={
-            handleSubmit as unknown as React.SubmitEventHandler<HTMLFormElement>
-          }
+          onSubmit={handleSubmit}
           className="flex flex-col gap-2 w-full max-w-sm items-center"
         >
           <LabelInput
